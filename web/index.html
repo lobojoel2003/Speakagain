@@ -31,8 +31,17 @@
 
   <title>Speakagain – speech practice for aphasia</title>
   <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#17507A">
+  <style>
+    /* Calm colours while the app loads, instead of a white flash. */
+    html, body { background: #F7F4EE; margin: 0; height: 100%; }
+    @media (prefers-color-scheme: dark) { html, body { background: #11171E; } }
+    #loading { position: fixed; inset: 0; display: flex; align-items: center; justify-content: center; }
+    #loading img { width: 96px; height: 96px; border-radius: 24px; opacity: 0.9; }
+  </style>
 </head>
 <body>
+  <div id="loading" aria-hidden="true"><img src="icons/Icon-192.png" alt=""></div>
   <!--
     You can customize the "flutter_bootstrap.js" script.
     This is useful to provide a custom configuration to the Flutter loader
@@ -42,5 +51,12 @@
     * https://docs.flutter.dev/platform-integration/web/initialization
   -->
   <script src="flutter_bootstrap.js" async></script>
+  <script>
+    // Remove the loading picture once Flutter has drawn its first frame.
+    window.addEventListener('flutter-first-frame', function () {
+      var loading = document.getElementById('loading');
+      if (loading) loading.remove();
+    });
+  </script>
 </body>
 </html>
