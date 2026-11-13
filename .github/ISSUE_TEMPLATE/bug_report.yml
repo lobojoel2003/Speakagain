@@ -1,0 +1,54 @@
+name: Something isn't working
+description: Report a problem with Speakagain
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to report this. Please don't include personal or health information about the person who uses Speakagain.
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened?
+      description: What did you do, what did you expect, and what happened instead?
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to make it happen again
+      placeholder: |
+        1. Open …
+        2. Tap …
+  - type: input
+    id: version
+    attributes:
+      label: Speakagain version
+      description: Settings › About Speakagain
+      placeholder: "1.0.0 (build 10000)"
+    validations:
+      required: true
+  - type: input
+    id: device
+    attributes:
+      label: Device and system
+      placeholder: "Samsung Galaxy Tab A9, Android 14 / iPhone 12, iOS 18 / Firefox on Windows"
+    validations:
+      required: true
+  - type: dropdown
+    id: language
+    attributes:
+      label: Practice language
+      options: [English, Español, Français, Deutsch, Italiano, Português, Nederlands, Polski, हिन्दी, العربية, 中文]
+  - type: dropdown
+    id: area
+    attributes:
+      label: Which part of Speakagain?
+      options:
+        - Practice and exercises
+        - Speech checking
+        - Voices
+        - Packs
+        - Progress
+        - Settings and display
+        - Something else

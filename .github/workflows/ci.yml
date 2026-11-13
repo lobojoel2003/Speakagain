@@ -52,10 +52,8 @@ jobs:
       - name: Tests
         run: flutter test --coverage --timeout 120s --exclude-tags screenshots
       - name: Screenshots
-        if: ${{ !cancelled() }}
         run: flutter test --tags screenshots --timeout 300s
       - name: Upload screenshots
-        if: ${{ !cancelled() }}
         uses: actions/upload-artifact@v7
         with:
           name: screenshots

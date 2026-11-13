@@ -1,0 +1,15 @@
+name: Idea or request
+description: Suggest something that would help people practise
+labels: [enhancement]
+body:
+  - type: textarea
+    id: need
+    attributes:
+      label: What would help, and for whom?
+      description: For example "my father can only use his left hand and…" (no names or health details needed).
+    validations:
+      required: true
+  - type: textarea
+    id: idea
+    attributes:
+      label: Your idea
