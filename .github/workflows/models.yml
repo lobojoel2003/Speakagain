@@ -29,11 +29,11 @@ jobs:
     timeout-minutes: 60
     steps:
       - uses: actions/checkout@v7
-      - uses: actions/setup-python@v6
+      - uses: actions/setup-python@v7
         with:
           python-version: "3.13"
       - run: pip install --quiet -r tool/models/requirements.txt
-      - uses: actions/cache@v5
+      - uses: actions/cache@v6
         with:
           path: build/models-cache
           key: models-upstream-${{ hashFiles('tool/models/sources.json') }}
