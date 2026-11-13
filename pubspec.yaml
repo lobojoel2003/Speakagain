@@ -52,12 +52,14 @@ dependencies:
   archive: ^4.7.0
   flutter_localizations:
     sdk: flutter
+  cupertino_icons: ^2.0.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
 
   flutter_lints: ^6.0.0
+  flutter_launcher_icons: ^0.14.4
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -71,10 +73,55 @@ flutter:
   # tool/sync_pack_assets.py keeps the block between the markers up to date
   # (CI fails if it is out of date).
   assets:
+    - assets/brand/icon.png
     - assets/models/
     - assets/sounds/
     - assets/symbols/openmoji/
     # BEGIN PACK ASSETS
+    - assets/packs/ar/ar-counting-and-days/
+    - assets/packs/ar/ar-everyday-words/
+    - assets/packs/ar/ar-finish-the-sentence/
+    - assets/packs/ar/ar-useful-phrases/
+    - assets/packs/de/de-counting-and-days/
+    - assets/packs/de/de-everyday-words/
+    - assets/packs/de/de-finish-the-sentence/
+    - assets/packs/de/de-useful-phrases/
+    - assets/packs/en/en-counting-and-days/
+    - assets/packs/en/en-everyday-words/
+    - assets/packs/en/en-finish-the-sentence/
+    - assets/packs/en/en-useful-phrases/
+    - assets/packs/es/es-counting-and-days/
+    - assets/packs/es/es-everyday-words/
+    - assets/packs/es/es-finish-the-sentence/
+    - assets/packs/es/es-useful-phrases/
+    - assets/packs/fr/fr-counting-and-days/
+    - assets/packs/fr/fr-everyday-words/
+    - assets/packs/fr/fr-finish-the-sentence/
+    - assets/packs/fr/fr-useful-phrases/
+    - assets/packs/hi/hi-counting-and-days/
+    - assets/packs/hi/hi-everyday-words/
+    - assets/packs/hi/hi-finish-the-sentence/
+    - assets/packs/hi/hi-useful-phrases/
+    - assets/packs/it/it-counting-and-days/
+    - assets/packs/it/it-everyday-words/
+    - assets/packs/it/it-finish-the-sentence/
+    - assets/packs/it/it-useful-phrases/
+    - assets/packs/nl/nl-counting-and-days/
+    - assets/packs/nl/nl-everyday-words/
+    - assets/packs/nl/nl-finish-the-sentence/
+    - assets/packs/nl/nl-useful-phrases/
+    - assets/packs/pl/pl-counting-and-days/
+    - assets/packs/pl/pl-everyday-words/
+    - assets/packs/pl/pl-finish-the-sentence/
+    - assets/packs/pl/pl-useful-phrases/
+    - assets/packs/pt/pt-counting-and-days/
+    - assets/packs/pt/pt-everyday-words/
+    - assets/packs/pt/pt-finish-the-sentence/
+    - assets/packs/pt/pt-useful-phrases/
+    - assets/packs/zh/zh-counting-and-days/
+    - assets/packs/zh/zh-everyday-words/
+    - assets/packs/zh/zh-finish-the-sentence/
+    - assets/packs/zh/zh-useful-phrases/
     # END PACK ASSETS
 
   fonts:

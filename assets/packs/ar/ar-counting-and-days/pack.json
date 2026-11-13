@@ -1,0 +1,148 @@
+{
+  "$schema": "../../../../schema/pack.schema.json",
+  "format": 1,
+  "id": "ar-counting-and-days",
+  "version": "1.0.0",
+  "language": "ar",
+  "title": "الأعداد والأيام",
+  "description": "الأعداد وأيام الأسبوع بالترتيب.",
+  "author": "Speakagain contributors",
+  "license": "CC BY-SA 4.0",
+  "exercises": [
+    "complete",
+    "read",
+    "repeat"
+  ],
+  "items": [
+    {
+      "id": "number-3",
+      "answer": "ثلاثة",
+      "accept": [
+        "3",
+        "ثلاث"
+      ],
+      "sentence": "١، ٢، ___"
+    },
+    {
+      "id": "number-4",
+      "answer": "أربعة",
+      "accept": [
+        "4",
+        "أربع"
+      ],
+      "sentence": "٢، ٣، ___"
+    },
+    {
+      "id": "number-5",
+      "answer": "خمسة",
+      "accept": [
+        "5",
+        "خمس"
+      ],
+      "sentence": "٣، ٤، ___"
+    },
+    {
+      "id": "number-6",
+      "answer": "ستة",
+      "accept": [
+        "6",
+        "ست"
+      ],
+      "sentence": "٤، ٥، ___"
+    },
+    {
+      "id": "number-7",
+      "answer": "سبعة",
+      "accept": [
+        "7",
+        "سبع"
+      ],
+      "sentence": "٥، ٦، ___"
+    },
+    {
+      "id": "number-8",
+      "answer": "ثمانية",
+      "accept": [
+        "8",
+        "ثماني",
+        "ثمان"
+      ],
+      "sentence": "٦، ٧، ___"
+    },
+    {
+      "id": "number-9",
+      "answer": "تسعة",
+      "accept": [
+        "9",
+        "تسع"
+      ],
+      "sentence": "٧، ٨، ___"
+    },
+    {
+      "id": "number-10",
+      "answer": "عشرة",
+      "accept": [
+        "10",
+        "عشر"
+      ],
+      "sentence": "٨، ٩، ___"
+    },
+    {
+      "id": "day-wednesday",
+      "answer": "الأربعاء",
+      "accept": [
+        "يوم الأربعاء"
+      ],
+      "sentence": "الاثنين، الثلاثاء، ___"
+    },
+    {
+      "id": "day-thursday",
+      "answer": "الخميس",
+      "accept": [
+        "يوم الخميس"
+      ],
+      "sentence": "الثلاثاء، الأربعاء، ___"
+    },
+    {
+      "id": "day-friday",
+      "answer": "الجمعة",
+      "accept": [
+        "يوم الجمعة"
+      ],
+      "sentence": "الأربعاء، الخميس، ___"
+    },
+    {
+      "id": "day-saturday",
+      "answer": "السبت",
+      "accept": [
+        "يوم السبت"
+      ],
+      "sentence": "الخميس، الجمعة، ___"
+    },
+    {
+      "id": "day-sunday",
+      "answer": "الأحد",
+      "accept": [
+        "يوم الأحد"
+      ],
+      "sentence": "الجمعة، السبت، ___"
+    },
+    {
+      "id": "day-monday",
+      "answer": "الاثنين",
+      "accept": [
+        "يوم الاثنين",
+        "الإثنين"
+      ],
+      "sentence": "السبت، الأحد، ___"
+    },
+    {
+      "id": "day-tuesday",
+      "answer": "الثلاثاء",
+      "accept": [
+        "يوم الثلاثاء"
+      ],
+      "sentence": "الأحد، الاثنين، ___"
+    }
+  ]
+}

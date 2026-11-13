@@ -60,12 +60,15 @@ class IsolateSpeechEngine implements SpeechEngine {
   }
 
   @override
-  Future<void> prepareRecognizer(RecognizerFiles files, String language) =>
-      _call('loadAsr', _asrArgs(files, language));
+  Future<void> prepareRecognizer(RecognizerFiles files, String language) => _call('loadAsr', _asrArgs(files, language));
 
   @override
-  Future<String> transcribe(Float32List samples, int sampleRate,
-      {required RecognizerFiles files, required String language}) async {
+  Future<String> transcribe(
+    Float32List samples,
+    int sampleRate, {
+    required RecognizerFiles files,
+    required String language,
+  }) async {
     final result = await _call('transcribe', {
       ..._asrArgs(files, language),
       'samples': TransferableTypedData.fromList([samples]),
@@ -101,11 +104,11 @@ class IsolateSpeechEngine implements SpeechEngine {
   }
 
   static Map<String, Object?> _asrArgs(RecognizerFiles files, String language) => {
-        'encoder': files.encoder,
-        'decoder': files.decoder,
-        'tokens': files.tokens,
-        'language': language,
-      };
+    'encoder': files.encoder,
+    'decoder': files.decoder,
+    'tokens': files.tokens,
+    'language': language,
+  };
 }
 
 // ---- Background isolate -----------------------------------------------------
@@ -167,7 +170,10 @@ class _Worker {
           sid: 0,
           speed: (args['speed'] as num?)?.toDouble() ?? 1.0,
         );
-        return [TransferableTypedData.fromList([audio.samples]), audio.sampleRate];
+        return [
+          TransferableTypedData.fromList([audio.samples]),
+          audio.sampleRate,
+        ];
       default:
         throw ArgumentError('Unknown operation $op');
     }

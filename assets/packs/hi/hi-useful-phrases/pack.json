@@ -1,0 +1,158 @@
+{
+  "$schema": "../../../../schema/pack.schema.json",
+  "format": 1,
+  "id": "hi-useful-phrases",
+  "version": "1.0.0",
+  "language": "hi",
+  "title": "काम के वाक्य",
+  "description": "रोज़ की बातचीत के छोटे वाक्य।",
+  "author": "Speakagain contributors",
+  "license": "CC BY-SA 4.0",
+  "exercises": [
+    "repeat",
+    "read"
+  ],
+  "items": [
+    {
+      "id": "hello",
+      "answer": "नमस्ते",
+      "accept": [
+        "नमस्कार"
+      ],
+      "image": "openmoji:1F44B"
+    },
+    {
+      "id": "good-night",
+      "answer": "शुभ रात्रि",
+      "accept": [
+        "गुड नाइट"
+      ],
+      "image": "openmoji:1F319"
+    },
+    {
+      "id": "how-are-you",
+      "answer": "आप कैसे हैं?",
+      "accept": [
+        "आप कैसी हैं",
+        "कैसे हो",
+        "क्या हाल है"
+      ],
+      "image": "openmoji:1F914"
+    },
+    {
+      "id": "im-fine",
+      "answer": "मैं ठीक हूँ",
+      "accept": [
+        "ठीक हूँ",
+        "ठीक"
+      ],
+      "image": "openmoji:1F642"
+    },
+    {
+      "id": "thank-you",
+      "answer": "धन्यवाद",
+      "accept": [
+        "शुक्रिया",
+        "थैंक यू"
+      ],
+      "image": "openmoji:1F64F"
+    },
+    {
+      "id": "please",
+      "answer": "कृपया",
+      "accept": [
+        "प्लीज़"
+      ],
+      "image": "openmoji:1F932"
+    },
+    {
+      "id": "yes",
+      "answer": "हाँ",
+      "accept": [
+        "जी हाँ"
+      ],
+      "image": "openmoji:1F44D"
+    },
+    {
+      "id": "no",
+      "answer": "नहीं",
+      "accept": [
+        "जी नहीं",
+        "ना"
+      ],
+      "image": "openmoji:1F645"
+    },
+    {
+      "id": "need-help",
+      "answer": "मुझे मदद चाहिए",
+      "accept": [
+        "मदद करो",
+        "मदद"
+      ],
+      "image": "openmoji:1F198"
+    },
+    {
+      "id": "it-hurts",
+      "answer": "दर्द हो रहा है",
+      "accept": [
+        "दर्द है",
+        "दर्द"
+      ],
+      "image": "openmoji:1F915"
+    },
+    {
+      "id": "tired",
+      "answer": "मुझे थकान हो रही है",
+      "accept": [
+        "मैं थक गया हूँ",
+        "मैं थक गई हूँ",
+        "थकान"
+      ],
+      "image": "openmoji:1F62B"
+    },
+    {
+      "id": "thirsty",
+      "answer": "मुझे प्यास लगी है",
+      "accept": [
+        "प्यास"
+      ],
+      "image": "openmoji:1F964"
+    },
+    {
+      "id": "hungry",
+      "answer": "मुझे भूख लगी है",
+      "accept": [
+        "भूख"
+      ],
+      "image": "openmoji:1F60B"
+    },
+    {
+      "id": "toilet",
+      "answer": "मुझे शौचालय जाना है",
+      "accept": [
+        "मुझे बाथरूम जाना है",
+        "मुझे टॉयलेट जाना है",
+        "शौचालय"
+      ],
+      "image": "openmoji:1F6BD"
+    },
+    {
+      "id": "love-you",
+      "answer": "मुझे तुमसे प्यार है",
+      "accept": [
+        "मैं तुमसे प्यार करता हूँ",
+        "मैं तुमसे प्यार करती हूँ"
+      ],
+      "image": "openmoji:2764"
+    },
+    {
+      "id": "goodbye",
+      "answer": "अलविदा",
+      "accept": [
+        "फिर मिलेंगे",
+        "बाय"
+      ],
+      "image": "openmoji:1F6AA"
+    }
+  ]
+}

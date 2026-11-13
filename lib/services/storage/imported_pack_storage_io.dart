@@ -11,7 +11,7 @@ ImportedPackStorage createStorage(LocalStore store) => FileImportedPackStorage()
 
 /// Saves each imported pack in `<app support>/packs/<id>/`.
 class FileImportedPackStorage implements ImportedPackStorage {
-  FileImportedPackStorage({Directory? root}) : _root = root;
+  FileImportedPackStorage({Directory? root}) : _root = root; // ignore: prefer_initializing_formals
 
   Directory? _root;
 
@@ -30,7 +30,9 @@ class FileImportedPackStorage implements ImportedPackStorage {
       final file = File('${entry.path}/pack.json');
       if (!await file.exists()) continue;
       try {
-        result.add(StoredPack(entry.uri.pathSegments.where((s) => s.isNotEmpty).last, jsonDecode(await file.readAsString())));
+        result.add(
+          StoredPack(entry.uri.pathSegments.where((s) => s.isNotEmpty).last, jsonDecode(await file.readAsString())),
+        );
       } on FormatException {
         // A damaged pack is skipped; the others still load.
       }

@@ -1,6 +1,5 @@
 import 'dart:async';
 import 'dart:math' as math;
-import 'dart:typed_data';
 
 import 'package:flutter/foundation.dart';
 import 'package:record/record.dart';
@@ -128,13 +127,15 @@ class VoiceRecorder {
     if (isRecording) await stop();
     final completer = _current = Completer<Recording>();
     final endpointer = _endpointer = SpeechEndpointer(sampleRate: sampleRate);
-    final stream = await _rec.startStream(const RecordConfig(
-      encoder: AudioEncoder.pcm16bits,
-      sampleRate: sampleRate,
-      numChannels: 1,
-      autoGain: true,
-      noiseSuppress: true,
-    ));
+    final stream = await _rec.startStream(
+      const RecordConfig(
+        encoder: AudioEncoder.pcm16bits,
+        sampleRate: sampleRate,
+        numChannels: 1,
+        autoGain: true,
+        noiseSuppress: true,
+      ),
+    );
     var carry = <int>[];
     _subscription = stream.listen(
       (bytes) {

@@ -83,20 +83,20 @@ class PackItem {
 
   /// Whether this item can be practised as [type].
   bool supports(ExerciseType type) => switch (type) {
-        ExerciseType.name || ExerciseType.listen => hasImage,
-        ExerciseType.complete => hasSentence,
-        ExerciseType.read || ExerciseType.repeat => true,
-      };
+    ExerciseType.name || ExerciseType.listen => hasImage,
+    ExerciseType.complete => hasSentence,
+    ExerciseType.read || ExerciseType.repeat => true,
+  };
 
   Map<String, Object?> toJson() => {
-        'id': id,
-        'answer': answer,
-        if (accept.isNotEmpty) 'accept': accept,
-        if (image != null) 'image': image,
-        if (category != null) 'category': category,
-        if (cue != null) 'cue': cue,
-        if (sentence != null) 'sentence': sentence,
-      };
+    'id': id,
+    'answer': answer,
+    if (accept.isNotEmpty) 'accept': accept,
+    if (image != null) 'image': image,
+    if (category != null) 'category': category,
+    if (cue != null) 'cue': cue,
+    if (sentence != null) 'sentence': sentence,
+  };
 }
 
 /// A set of practice items in one language, loaded from a `pack.json`.
@@ -152,55 +152,51 @@ class Pack {
 
   /// Image references used by the pack's own files (not OpenMoji symbols).
   Set<String> get localImages => {
-        for (final item in items)
-          if (item.image != null && !item.image!.startsWith('openmoji:')) item.image!,
-      };
+    for (final item in items)
+      if (item.image != null && !item.image!.startsWith('openmoji:')) item.image!,
+  };
 
   Set<String> get openMojiCodes => {
-        for (final item in items)
-          if (item.image != null && item.image!.startsWith('openmoji:')) item.image!.substring(9),
-      };
+    for (final item in items)
+      if (item.image != null && item.image!.startsWith('openmoji:')) item.image!.substring(9),
+  };
 
   Map<String, Object?> toJson() => {
-        'format': packFormat,
-        'id': id,
-        'version': version,
-        'language': language,
-        'title': title,
-        if (description.isNotEmpty) 'description': description,
-        if (author.isNotEmpty) 'author': author,
-        if (license.isNotEmpty) 'license': license,
-        'exercises': [for (final e in exercises) e.name],
-        if (categories.isNotEmpty) 'categories': categories,
-        'items': [for (final item in items) item.toJson()],
-      };
+    'format': packFormat,
+    'id': id,
+    'version': version,
+    'language': language,
+    'title': title,
+    if (description.isNotEmpty) 'description': description,
+    if (author.isNotEmpty) 'author': author,
+    if (license.isNotEmpty) 'license': license,
+    'exercises': [for (final e in exercises) e.name],
+    if (categories.isNotEmpty) 'categories': categories,
+    'items': [for (final item in items) item.toJson()],
+  };
 
   Pack copyWith({PackSource? source, String? basePath}) => Pack(
-        id: id,
-        version: version,
-        language: language,
-        title: title,
-        description: description,
-        author: author,
-        license: license,
-        exercises: exercises,
-        categories: categories,
-        items: items,
-        source: source ?? this.source,
-        basePath: basePath ?? this.basePath,
-      );
+    id: id,
+    version: version,
+    language: language,
+    title: title,
+    description: description,
+    author: author,
+    license: license,
+    exercises: exercises,
+    categories: categories,
+    items: items,
+    source: source ?? this.source,
+    basePath: basePath ?? this.basePath,
+  );
 
   /// Reads and checks a decoded `pack.json`. Throws [PackFormatException] listing
   /// every problem found, so pack authors can fix them all at once.
-  factory Pack.fromJson(
-    Object? json, {
-    PackSource source = PackSource.bundled,
-    String basePath = '',
-  }) {
+  factory Pack.fromJson(Object? json, {PackSource source = PackSource.bundled, String basePath = ''}) {
     final problems = <String>[];
     if (json is! Map) throw const PackFormatException(['pack.json must be a JSON object']);
 
-    String text(Map map, String key, String where, {bool required = true}) {
+    String text(Map<Object?, Object?> map, String key, String where, {bool required = true}) {
       final value = map[key];
       if (value == null && !required) return '';
       if (value is! String || value.trim().isEmpty) {
@@ -308,15 +304,17 @@ class Pack {
         if (sentence != null && blank.allMatches(sentence).length != 1) {
           problems.add('$where: "sentence" must contain "$blank" exactly once');
         }
-        items.add(PackItem(
-          id: itemId,
-          answer: answer,
-          accept: accept,
-          image: image,
-          category: category,
-          cue: optional('cue'),
-          sentence: sentence,
-        ));
+        items.add(
+          PackItem(
+            id: itemId,
+            answer: answer,
+            accept: accept,
+            image: image,
+            category: category,
+            cue: optional('cue'),
+            sentence: sentence,
+          ),
+        );
       }
     }
 

@@ -1,0 +1,167 @@
+{
+  "$schema": "../../../../schema/pack.schema.json",
+  "format": 1,
+  "id": "hi-finish-the-sentence",
+  "version": "1.0.0",
+  "language": "hi",
+  "title": "वाक्य पूरा करें",
+  "description": "रोज़ के वाक्य जिनमें एक शब्द नहीं है।",
+  "author": "Speakagain contributors",
+  "license": "CC BY-SA 4.0",
+  "exercises": [
+    "complete"
+  ],
+  "items": [
+    {
+      "id": "sleep-bed",
+      "answer": "बिस्तर",
+      "accept": [
+        "पलंग"
+      ],
+      "image": "openmoji:1F6CF",
+      "sentence": "हम ___ पर सोते हैं।"
+    },
+    {
+      "id": "sit-chair",
+      "answer": "कुर्सी",
+      "image": "openmoji:1FA91",
+      "sentence": "हम ___ पर बैठते हैं।"
+    },
+    {
+      "id": "open-key",
+      "answer": "चाबी",
+      "accept": [
+        "चाभी"
+      ],
+      "image": "openmoji:1F511",
+      "sentence": "हम ___ से दरवाज़ा खोलते हैं।"
+    },
+    {
+      "id": "read-book",
+      "answer": "किताब",
+      "accept": [
+        "पुस्तक"
+      ],
+      "image": "openmoji:1F4D6",
+      "sentence": "हम ___ पढ़ते हैं।"
+    },
+    {
+      "id": "brush-toothbrush",
+      "answer": "टूथब्रश",
+      "accept": [
+        "ब्रश"
+      ],
+      "image": "openmoji:1FAA5",
+      "sentence": "हम ___ से दाँत साफ़ करते हैं।"
+    },
+    {
+      "id": "cow-milk",
+      "answer": "दूध",
+      "image": "openmoji:1F95B",
+      "sentence": "गाय हमें ___ देती है।"
+    },
+    {
+      "id": "morning-tea",
+      "answer": "चाय",
+      "accept": [
+        "कॉफ़ी"
+      ],
+      "image": "openmoji:1F375",
+      "sentence": "सुबह हम एक कप ___ पीते हैं।"
+    },
+    {
+      "id": "sky-sun",
+      "answer": "सूरज",
+      "accept": [
+        "सूर्य"
+      ],
+      "image": "openmoji:2600",
+      "sentence": "आसमान में ___ चमकता है।"
+    },
+    {
+      "id": "night-moon",
+      "answer": "चाँद",
+      "accept": [
+        "चंद्रमा",
+        "तारे"
+      ],
+      "image": "openmoji:1F319",
+      "sentence": "रात को आसमान में ___ दिखता है।"
+    },
+    {
+      "id": "see-eyes",
+      "answer": "आँखों",
+      "accept": [
+        "आँख",
+        "आँखें"
+      ],
+      "image": "openmoji:1F441",
+      "sentence": "हम ___ से देखते हैं।"
+    },
+    {
+      "id": "hear-ears",
+      "answer": "कानों",
+      "accept": [
+        "कान"
+      ],
+      "image": "openmoji:1F442",
+      "sentence": "हम ___ से सुनते हैं।"
+    },
+    {
+      "id": "smell-nose",
+      "answer": "नाक",
+      "image": "openmoji:1F443",
+      "sentence": "हम ___ से सूँघते हैं।"
+    },
+    {
+      "id": "socks-shoes",
+      "answer": "जूते",
+      "accept": [
+        "जूता"
+      ],
+      "image": "openmoji:1F45F",
+      "sentence": "मोज़े के बाद हम ___ पहनते हैं।"
+    },
+    {
+      "id": "rain-umbrella",
+      "answer": "छाता",
+      "accept": [
+        "छतरी"
+      ],
+      "image": "openmoji:2602",
+      "sentence": "बारिश में हम ___ खोलते हैं।"
+    },
+    {
+      "id": "fly-plane",
+      "answer": "हवाई जहाज़",
+      "accept": [
+        "जहाज़",
+        "विमान",
+        "पक्षी"
+      ],
+      "image": "openmoji:2708",
+      "sentence": "आसमान में ___ उड़ता है।"
+    },
+    {
+      "id": "swim-fish",
+      "answer": "मछली",
+      "image": "openmoji:1F41F",
+      "sentence": "पानी में ___ तैरती है।"
+    },
+    {
+      "id": "sandwich-bread",
+      "answer": "ब्रेड",
+      "accept": [
+        "डबल रोटी"
+      ],
+      "image": "openmoji:1F35E",
+      "sentence": "सैंडविच ___ से बनता है।"
+    },
+    {
+      "id": "call-phone",
+      "answer": "फ़ोन",
+      "image": "openmoji:1F4F1",
+      "sentence": "किसी से बात करने के लिए हम ___ करते हैं।"
+    }
+  ]
+}

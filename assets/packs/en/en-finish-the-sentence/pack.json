@@ -1,0 +1,148 @@
+{
+  "$schema": "../../../../schema/pack.schema.json",
+  "format": 1,
+  "id": "en-finish-the-sentence",
+  "version": "1.0.0",
+  "language": "en",
+  "title": "Finish the sentence",
+  "description": "Everyday sentences with the last word missing.",
+  "author": "Speakagain contributors",
+  "license": "CC BY-SA 4.0",
+  "exercises": [
+    "complete"
+  ],
+  "items": [
+    {
+      "id": "sleep-bed",
+      "answer": "bed",
+      "image": "openmoji:1F6CF",
+      "sentence": "You sleep in a ___."
+    },
+    {
+      "id": "sit-chair",
+      "answer": "chair",
+      "image": "openmoji:1FA91",
+      "sentence": "You sit on a ___."
+    },
+    {
+      "id": "open-key",
+      "answer": "key",
+      "image": "openmoji:1F511",
+      "sentence": "You open the door with a ___."
+    },
+    {
+      "id": "read-book",
+      "answer": "book",
+      "image": "openmoji:1F4D6",
+      "sentence": "You read a ___."
+    },
+    {
+      "id": "brush-toothbrush",
+      "answer": "toothbrush",
+      "image": "openmoji:1FAA5",
+      "sentence": "You brush your teeth with a ___."
+    },
+    {
+      "id": "cow-milk",
+      "answer": "milk",
+      "image": "openmoji:1F95B",
+      "sentence": "A cow gives us ___."
+    },
+    {
+      "id": "morning-coffee",
+      "answer": "coffee",
+      "accept": [
+        "tea"
+      ],
+      "image": "openmoji:2615",
+      "sentence": "In the morning I drink a cup of ___."
+    },
+    {
+      "id": "sky-sun",
+      "answer": "sun",
+      "image": "openmoji:2600",
+      "sentence": "The ___ shines in the sky."
+    },
+    {
+      "id": "night-moon",
+      "answer": "moon",
+      "accept": [
+        "stars",
+        "star"
+      ],
+      "image": "openmoji:1F319",
+      "sentence": "At night you can see the ___."
+    },
+    {
+      "id": "see-eyes",
+      "answer": "eyes",
+      "accept": [
+        "eye"
+      ],
+      "image": "openmoji:1F441",
+      "sentence": "You see with your ___."
+    },
+    {
+      "id": "hear-ears",
+      "answer": "ears",
+      "accept": [
+        "ear"
+      ],
+      "image": "openmoji:1F442",
+      "sentence": "You hear with your ___."
+    },
+    {
+      "id": "smell-nose",
+      "answer": "nose",
+      "image": "openmoji:1F443",
+      "sentence": "You smell with your ___."
+    },
+    {
+      "id": "socks-shoes",
+      "answer": "shoes",
+      "accept": [
+        "shoe"
+      ],
+      "image": "openmoji:1F45F",
+      "sentence": "Put on your socks and ___."
+    },
+    {
+      "id": "rain-umbrella",
+      "answer": "umbrella",
+      "image": "openmoji:2602",
+      "sentence": "When it rains, open your ___."
+    },
+    {
+      "id": "fly-plane",
+      "answer": "plane",
+      "accept": [
+        "bird",
+        "aeroplane",
+        "airplane"
+      ],
+      "image": "openmoji:2708",
+      "sentence": "A ___ flies in the sky."
+    },
+    {
+      "id": "swim-fish",
+      "answer": "fish",
+      "image": "openmoji:1F41F",
+      "sentence": "A ___ swims in the water."
+    },
+    {
+      "id": "sandwich-bread",
+      "answer": "bread",
+      "image": "openmoji:1F35E",
+      "sentence": "You make a sandwich with ___."
+    },
+    {
+      "id": "call-phone",
+      "answer": "phone",
+      "accept": [
+        "telephone"
+      ],
+      "image": "openmoji:1F4F1",
+      "sentence": "To call someone, you pick up the ___."
+    }
+  ]
+}

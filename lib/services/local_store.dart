@@ -27,8 +27,7 @@ class LocalStore {
     return map == null ? const AppSettings() : AppSettings.fromJson(map);
   }
 
-  Future<void> saveSettings(AppSettings settings) =>
-      _prefs.setString(_settingsKey, jsonEncode(settings.toJson()));
+  Future<void> saveSettings(AppSettings settings) => _prefs.setString(_settingsKey, jsonEncode(settings.toJson()));
 
   Map<String, ItemProgress> loadProgress() {
     final map = _decodeMap(_prefs.getString(_progressKey)) ?? const {};
@@ -38,10 +37,8 @@ class LocalStore {
     };
   }
 
-  Future<void> saveProgress(Map<String, ItemProgress> progress) => _prefs.setString(
-        _progressKey,
-        jsonEncode({for (final e in progress.entries) e.key: e.value.toJson()}),
-      );
+  Future<void> saveProgress(Map<String, ItemProgress> progress) =>
+      _prefs.setString(_progressKey, jsonEncode({for (final e in progress.entries) e.key: e.value.toJson()}));
 
   List<DayLog> loadDays() {
     final raw = _prefs.getString(_daysKey);
@@ -71,9 +68,9 @@ class LocalStore {
   /// Packs imported on the web, where there is no file system: id -> JSON
   /// (with pictures embedded).
   Map<String, String> loadImportedPackBlobs() => {
-        for (final key in _prefs.getKeys())
-          if (key.startsWith(_importedPrefix)) key.substring(_importedPrefix.length): _prefs.getString(key) ?? '',
-      };
+    for (final key in _prefs.getKeys())
+      if (key.startsWith(_importedPrefix)) key.substring(_importedPrefix.length): _prefs.getString(key) ?? '',
+  };
 
   Future<void> saveImportedPackBlob(String id, String blob) => _prefs.setString('$_importedPrefix$id', blob);
 

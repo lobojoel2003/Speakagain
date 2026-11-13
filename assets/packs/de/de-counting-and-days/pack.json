@@ -1,0 +1,120 @@
+{
+  "$schema": "../../../../schema/pack.schema.json",
+  "format": 1,
+  "id": "de-counting-and-days",
+  "version": "1.0.0",
+  "language": "de",
+  "title": "Zählen und Wochentage",
+  "description": "Zahlen und die Wochentage der Reihe nach.",
+  "author": "Speakagain contributors",
+  "license": "CC BY-SA 4.0",
+  "exercises": [
+    "complete",
+    "read",
+    "repeat"
+  ],
+  "items": [
+    {
+      "id": "number-3",
+      "answer": "drei",
+      "accept": [
+        "3"
+      ],
+      "sentence": "1, 2, ___"
+    },
+    {
+      "id": "number-4",
+      "answer": "vier",
+      "accept": [
+        "4"
+      ],
+      "sentence": "2, 3, ___"
+    },
+    {
+      "id": "number-5",
+      "answer": "fünf",
+      "accept": [
+        "5"
+      ],
+      "sentence": "3, 4, ___"
+    },
+    {
+      "id": "number-6",
+      "answer": "sechs",
+      "accept": [
+        "6"
+      ],
+      "sentence": "4, 5, ___"
+    },
+    {
+      "id": "number-7",
+      "answer": "sieben",
+      "accept": [
+        "7"
+      ],
+      "sentence": "5, 6, ___"
+    },
+    {
+      "id": "number-8",
+      "answer": "acht",
+      "accept": [
+        "8"
+      ],
+      "sentence": "6, 7, ___"
+    },
+    {
+      "id": "number-9",
+      "answer": "neun",
+      "accept": [
+        "9"
+      ],
+      "sentence": "7, 8, ___"
+    },
+    {
+      "id": "number-10",
+      "answer": "zehn",
+      "accept": [
+        "10"
+      ],
+      "sentence": "8, 9, ___"
+    },
+    {
+      "id": "day-wednesday",
+      "answer": "Mittwoch",
+      "sentence": "Montag, Dienstag, ___"
+    },
+    {
+      "id": "day-thursday",
+      "answer": "Donnerstag",
+      "sentence": "Dienstag, Mittwoch, ___"
+    },
+    {
+      "id": "day-friday",
+      "answer": "Freitag",
+      "sentence": "Mittwoch, Donnerstag, ___"
+    },
+    {
+      "id": "day-saturday",
+      "answer": "Samstag",
+      "accept": [
+        "Sonnabend"
+      ],
+      "sentence": "Donnerstag, Freitag, ___"
+    },
+    {
+      "id": "day-sunday",
+      "answer": "Sonntag",
+      "sentence": "Freitag, Samstag, ___"
+    },
+    {
+      "id": "day-monday",
+      "answer": "Montag",
+      "sentence": "Samstag, Sonntag, ___"
+    },
+    {
+      "id": "day-tuesday",
+      "answer": "Dienstag",
+      "sentence": "Sonntag, Montag, ___"
+    }
+  ]
+}

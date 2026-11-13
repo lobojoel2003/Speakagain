@@ -93,18 +93,18 @@ class AppState extends ChangeNotifier {
 
   /// Exercise types with at least one pack in the current language.
   List<ExerciseType> get availableExercises => [
-        for (final type in ExerciseType.values)
-          if (currentPacks.any((p) => p.offers(type))) type,
-      ];
+    for (final type in ExerciseType.values)
+      if (currentPacks.any((p) => p.offers(type))) type,
+  ];
 
   List<PracticeTask> planSession({ExerciseType? only, int? seed}) => const SessionPlanner().plan(
-        packs: currentPacks,
-        progress: _progress,
-        count: _settings.sessionLength,
-        now: now,
-        only: only,
-        random: math.Random(seed ?? now.millisecondsSinceEpoch),
-      );
+    packs: currentPacks,
+    progress: _progress,
+    count: _settings.sessionLength,
+    now: now,
+    only: only,
+    random: math.Random(seed ?? now.millisecondsSinceEpoch),
+  );
 
   Future<void> record(PracticeTask task, Outcome outcome) async {
     final time = now;
@@ -129,11 +129,12 @@ class AppState extends ChangeNotifier {
 
   /// Days practised in the last 7 days, oldest first (for the week strip).
   List<bool> get lastSevenDays {
-    final practised = {for (final d in _days) if (d.practised > 0) d.date};
+    final practised = {
+      for (final d in _days)
+        if (d.practised > 0) d.date,
+    };
     final t = now;
-    return [
-      for (var i = 6; i >= 0; i--) practised.contains(dayKey(DateTime(t.year, t.month, t.day - i))),
-    ];
+    return [for (var i = 6; i >= 0; i--) practised.contains(dayKey(DateTime(t.year, t.month, t.day - i)))];
   }
 
   int get daysPractised => _days.where((d) => d.practised > 0).length;
@@ -190,13 +191,17 @@ class AppState extends ChangeNotifier {
     notifyListeners();
     var lastNotified = 0.0;
     try {
-      await models.download(item, cancel: cancel, onProgress: (p) {
-        _downloads[item.id] = DownloadState(progress: p);
-        if (p - lastNotified >= 0.01 || p >= 1) {
-          lastNotified = p;
-          notifyListeners();
-        }
-      });
+      await models.download(
+        item,
+        cancel: cancel,
+        onProgress: (p) {
+          _downloads[item.id] = DownloadState(progress: p);
+          if (p - lastNotified >= 0.01 || p >= 1) {
+            lastNotified = p;
+            notifyListeners();
+          }
+        },
+      );
       _downloads.remove(item.id);
       speech.configure(_settings);
       notifyListeners();

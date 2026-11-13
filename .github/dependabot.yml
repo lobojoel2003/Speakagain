@@ -1,0 +1,20 @@
+version: 2
+updates:
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: monthly
+    groups:
+      actions:
+        patterns: ["*"]
+  - package-ecosystem: pub
+    directory: /
+    schedule:
+      interval: monthly
+    groups:
+      pub:
+        patterns: ["*"]
+    ignore:
+      # sherpa-onnx 2.x no longer bundles eSpeak NG, which the Piper voices need.
+      - dependency-name: "sherpa_onnx*"
+        update-types: ["version-update:semver-major"]

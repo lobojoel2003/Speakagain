@@ -1,0 +1,298 @@
+name: Release
+
+# Publish a release in either of two ways (see docs/releasing.md):
+#
+#   - push a version tag that matches pubspec.yaml:
+#       git tag -a v1.0.0 -m "Speakagain 1.0.0" && git push origin v1.0.0
+#   - or open Actions > Release > Run workflow on main; the tag v<version> is
+#     created with the release.
+#
+# CI runs first. Then signed Android APKs and an App Bundle, the web app and an
+# unsigned iOS build are attached to a GitHub Release whose notes come from
+# CHANGELOG.md, and the web app is published to GitHub Pages.
+on:
+  push:
+    tags: ["v*.*.*"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: release-${{ github.ref }}
+  cancel-in-progress: false
+
+env:
+  FLUTTER_VERSION: "3.47.9"
+
+jobs:
+  ci:
+    name: CI
+    uses: ./.github/workflows/ci.yml
+
+  prepare:
+    name: Version
+    runs-on: ubuntu-latest
+    outputs:
+      tag: ${{ steps.tag.outputs.tag }}
+      version: ${{ steps.tag.outputs.version }}
+      build: ${{ steps.tag.outputs.build }}
+    steps:
+      - uses: actions/checkout@v7
+      - id: tag
+        name: Release tag
+        run: |
+          version="$(python3 tool/version.py name)"
+          if [ "$GITHUB_EVENT_NAME" = workflow_dispatch ]; then
+            if [ "$GITHUB_REF" != refs/heads/main ]; then echo "::error::Run releases from main"; exit 1; fi
+            tag="v$version"
+            if git ls-remote --exit-code --tags origin "refs/tags/$tag" >/dev/null; then
+              echo "::error::$tag already exists. Bump the version in pubspec.yaml first."; exit 1
+            fi
+          else
+            tag="$GITHUB_REF_NAME"
+          fi
+          python3 tool/version.py check "$tag"
+          {
+            echo "tag=$tag"
+            echo "version=$version"
+            echo "build=$(python3 tool/version.py build)"
+          } >> "$GITHUB_OUTPUT"
+
+  android:
+    name: Android (signed)
+    needs: [ci, prepare]
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    env:
+      VERSION: ${{ needs.prepare.outputs.version }}
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-java@v6
+        with:
+          distribution: temurin
+          java-version: "21"
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: ${{ env.FLUTTER_VERSION }}
+          channel: stable
+          cache: true
+      - uses: gradle/actions/setup-gradle@v5
+      - name: Signing key
+        env:
+          KEYSTORE_BASE64: ${{ secrets.SPEAKAGAIN_KEYSTORE_BASE64 }}
+          KEYSTORE_PASSWORD: ${{ secrets.SPEAKAGAIN_KEYSTORE_PASSWORD }}
+          KEY_ALIAS: ${{ secrets.SPEAKAGAIN_KEY_ALIAS }}
+          KEY_PASSWORD: ${{ secrets.SPEAKAGAIN_KEY_PASSWORD }}
+        run: |
+          keystore="$RUNNER_TEMP/speakagain-release.jks"
+          if [ -n "$KEYSTORE_BASE64" ]; then
+            echo "$KEYSTORE_BASE64" | base64 --decode > "$keystore"
+            {
+              echo "SPEAKAGAIN_KEYSTORE_FILE=$keystore"
+              echo "SPEAKAGAIN_KEYSTORE_PASSWORD=$KEYSTORE_PASSWORD"
+              echo "SPEAKAGAIN_KEY_ALIAS=$KEY_ALIAS"
+              echo "SPEAKAGAIN_KEY_PASSWORD=${KEY_PASSWORD:-$KEYSTORE_PASSWORD}"
+              echo "SIGNING=project"
+            } >> "$GITHUB_ENV"
+          else
+            # No signing secrets yet: sign with a one-off key so the APKs install. Updates need
+            # the same key, so set up the secrets (docs/releasing.md) for stable releases.
+            echo "::warning::SPEAKAGAIN_KEYSTORE_BASE64 is not set; signing with a temporary key."
+            password="$(openssl rand -hex 24)"
+            keytool -genkeypair -keystore "$keystore" -storetype PKCS12 -storepass "$password" \
+              -alias speakagain -keyalg RSA -keysize 4096 -validity 10000 \
+              -dname "CN=Speakagain temporary release key" >/dev/null
+            echo "::add-mask::$password"
+            {
+              echo "SPEAKAGAIN_KEYSTORE_FILE=$keystore"
+              echo "SPEAKAGAIN_KEYSTORE_PASSWORD=$password"
+              echo "SPEAKAGAIN_KEY_ALIAS=speakagain"
+              echo "SPEAKAGAIN_KEY_PASSWORD=$password"
+              echo "SIGNING=temporary"
+            } >> "$GITHUB_ENV"
+          fi
+      - run: flutter pub get
+      - name: Build
+        run: |
+          defines="--dart-define=SPEAKAGAIN_CHANNEL=release --dart-define=SPEAKAGAIN_CI_RUN=${{ github.run_number }} --dart-define=SPEAKAGAIN_COMMIT=${GITHUB_SHA::7}"
+          flutter build apk --release --split-per-abi -Pforce-version-code-ignoring-abi=true $defines
+          flutter build apk --release -Pforce-version-code-ignoring-abi=true $defines
+          flutter build appbundle --release $defines
+      - name: Collect, verify and fingerprint
+        run: |
+          mkdir -p dist
+          for apk in build/app/outputs/flutter-apk/app-*-release.apk; do
+            abi="$(basename "$apk" | sed -E 's/^app-(.*)-release\.apk$/\1/')"
+            cp "$apk" "dist/Speakagain-$VERSION-android-$abi.apk"
+          done
+          cp build/app/outputs/flutter-apk/app-release.apk "dist/Speakagain-$VERSION-android-universal.apk"
+          cp build/app/outputs/bundle/release/app-release.aab "dist/Speakagain-$VERSION-android.aab"
+          tools="$(ls -d "$ANDROID_HOME"/build-tools/* | sort -V | tail -1)"
+          "$tools/apksigner" verify --print-certs "dist/Speakagain-$VERSION-android-universal.apk" | tee signing.txt
+          "$tools/aapt2" dump badging "dist/Speakagain-$VERSION-android-universal.apk" | head -1
+          grep -m1 'SHA-256 digest' signing.txt | sed 's/.*: //' > dist/android-signing-certificate.txt
+          echo "$SIGNING" > dist/android-signing-kind.txt
+          ls -l dist
+      - uses: actions/upload-artifact@v7
+        with:
+          name: release-android
+          path: dist/
+          if-no-files-found: error
+
+  web:
+    name: Web
+    needs: [ci, prepare]
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      VERSION: ${{ needs.prepare.outputs.version }}
+    steps:
+      - uses: actions/checkout@v7
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: ${{ env.FLUTTER_VERSION }}
+          channel: stable
+          cache: true
+      - run: flutter pub get
+      - name: Build for hosting at the site root (download)
+        run: |
+          flutter build web --release --no-web-resources-cdn \
+            --dart-define=SPEAKAGAIN_CHANNEL=release --dart-define=SPEAKAGAIN_COMMIT=${GITHUB_SHA::7}
+          mkdir -p dist && (cd build/web && zip -qr "../../dist/Speakagain-$VERSION-web.zip" .)
+      - name: Build for GitHub Pages
+        run: |
+          flutter build web --release --no-web-resources-cdn --base-href "/${GITHUB_REPOSITORY#*/}/" \
+            --dart-define=SPEAKAGAIN_CHANNEL=release --dart-define=SPEAKAGAIN_COMMIT=${GITHUB_SHA::7}
+      - uses: actions/upload-artifact@v7
+        with:
+          name: release-web
+          path: dist/
+          if-no-files-found: error
+      - uses: actions/upload-pages-artifact@v4
+        with:
+          path: build/web
+
+  ios:
+    name: iOS (unsigned)
+    needs: [ci, prepare]
+    runs-on: macos-latest
+    timeout-minutes: 45
+    env:
+      VERSION: ${{ needs.prepare.outputs.version }}
+    steps:
+      - uses: actions/checkout@v7
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: ${{ env.FLUTTER_VERSION }}
+          channel: stable
+          cache: true
+      - run: flutter pub get
+      - name: Build
+        run: |
+          flutter build ios --release --no-codesign \
+            --dart-define=SPEAKAGAIN_CHANNEL=release --dart-define=SPEAKAGAIN_COMMIT=${GITHUB_SHA::7}
+          mkdir -p build/ipa/Payload dist
+          cp -R build/ios/iphoneos/Runner.app build/ipa/Payload/
+          (cd build/ipa && zip -qr "../../dist/Speakagain-$VERSION-ios-unsigned.ipa" Payload)
+          ls -l dist
+      - uses: actions/upload-artifact@v7
+        with:
+          name: release-ios
+          path: dist/
+          if-no-files-found: error
+
+  publish:
+    name: Publish
+    needs: [prepare, android, web, ios]
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: write
+    env:
+      TAG: ${{ needs.prepare.outputs.tag }}
+      VERSION: ${{ needs.prepare.outputs.version }}
+      BUILD: ${{ needs.prepare.outputs.build }}
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/download-artifact@v8
+        with:
+          pattern: release-*
+          path: dist
+          merge-multiple: true
+      - name: Checksums
+        run: |
+          fingerprint="$(cat dist/android-signing-certificate.txt)"
+          signing="$(cat dist/android-signing-kind.txt)"
+          echo "FINGERPRINT=$fingerprint" >> "$GITHUB_ENV"
+          echo "SIGNING=$signing" >> "$GITHUB_ENV"
+          rm dist/android-signing-certificate.txt dist/android-signing-kind.txt
+          (cd dist && sha256sum Speakagain-* > SHA256SUMS.txt && cat SHA256SUMS.txt)
+      - name: Release notes
+        run: |
+          python3 tool/version.py notes "$TAG" > release-notes.md
+          repo="${GITHUB_REPOSITORY#*/}"
+          {
+            echo
+            echo "### Install"
+            echo
+            echo "**Android** (7.0 or newer): download one APK on the phone or tablet and open it (allow installing from your browser or file manager when asked)."
+            echo
+            echo "| File | For |"
+            echo "|---|---|"
+            echo "| \`Speakagain-$VERSION-android-arm64-v8a.apk\` | Most phones and tablets from the last few years |"
+            echo "| \`Speakagain-$VERSION-android-armeabi-v7a.apk\` | Older or low-cost 32-bit devices |"
+            echo "| \`Speakagain-$VERSION-android-x86_64.apk\` | Chromebooks and emulators |"
+            echo "| \`Speakagain-$VERSION-android-universal.apk\` | Any device, if you're not sure (larger download) |"
+            echo "| \`Speakagain-$VERSION-android.aab\` | App Bundle, for app stores |"
+            echo
+            echo "**Web**: use it at https://${GITHUB_REPOSITORY_OWNER,,}.github.io/$repo/ (when GitHub Pages is on), or host \`Speakagain-$VERSION-web.zip\` on any web server."
+            echo
+            echo "**iPhone and iPad**: \`Speakagain-$VERSION-ios-unsigned.ipa\` is unsigned; install it with a sideloading tool that signs it with your Apple ID, or build from source with Xcode (see the README)."
+            echo
+            echo "Speech checking and natural voices are one-time downloads inside the app ([models](https://github.com/$GITHUB_REPOSITORY/releases/tag/models-v1)). Everything then works offline."
+            echo
+            echo "Version $VERSION, build $BUILD. Android signing certificate SHA-256: \`$FINGERPRINT\`"
+            if [ "$SIGNING" = "temporary" ]; then
+              echo
+              echo "> [!NOTE]"
+              echo "> These APKs are signed with a temporary key. A later release signed with the project key"
+              echo "> will need Speakagain to be uninstalled first (practice history is kept only on the device)."
+            fi
+          } >> release-notes.md
+          cat release-notes.md
+      - uses: softprops/action-gh-release@v3
+        with:
+          tag_name: ${{ env.TAG }}
+          target_commitish: ${{ github.sha }}
+          name: Speakagain ${{ env.VERSION }}
+          body_path: release-notes.md
+          files: dist/*
+          fail_on_unmatched_files: true
+          make_latest: "true"
+
+  pages:
+    name: Web app on GitHub Pages
+    needs: [publish, web]
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - name: Is GitHub Pages set to deploy from Actions?
+        id: enabled
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if gh api "repos/$GITHUB_REPOSITORY/pages" --jq '.build_type' 2>/dev/null | grep -q workflow; then
+            echo "on=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "on=false" >> "$GITHUB_OUTPUT"
+            echo "::notice::GitHub Pages is off. To publish the web app, set Settings > Pages > Source to GitHub Actions, then re-run this job."
+          fi
+      - id: deploy
+        if: steps.enabled.outputs.on == 'true'
+        uses: actions/deploy-pages@v4

@@ -14,8 +14,12 @@ class UnsupportedSpeechEngine implements SpeechEngine {
       throw const SpeechEngineException('Speech checking is not available here');
 
   @override
-  Future<String> transcribe(Float32List samples, int sampleRate, {required RecognizerFiles files, required String language}) async =>
-      throw const SpeechEngineException('Speech checking is not available here');
+  Future<String> transcribe(
+    Float32List samples,
+    int sampleRate, {
+    required RecognizerFiles files,
+    required String language,
+  }) async => throw const SpeechEngineException('Speech checking is not available here');
 
   @override
   Future<SynthesizedAudio> synthesize(String text, {required VoiceFiles files, double speed = 1.0}) async =>

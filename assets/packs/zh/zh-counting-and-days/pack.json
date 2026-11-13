@@ -1,0 +1,146 @@
+{
+  "$schema": "../../../../schema/pack.schema.json",
+  "format": 1,
+  "id": "zh-counting-and-days",
+  "version": "1.0.0",
+  "language": "zh",
+  "title": "数数和星期",
+  "description": "按顺序说数字和星期。",
+  "author": "Speakagain contributors",
+  "license": "CC BY-SA 4.0",
+  "exercises": [
+    "complete",
+    "read",
+    "repeat"
+  ],
+  "items": [
+    {
+      "id": "number-3",
+      "answer": "三",
+      "accept": [
+        "3"
+      ],
+      "sentence": "1，2，___"
+    },
+    {
+      "id": "number-4",
+      "answer": "四",
+      "accept": [
+        "4"
+      ],
+      "sentence": "2，3，___"
+    },
+    {
+      "id": "number-5",
+      "answer": "五",
+      "accept": [
+        "5"
+      ],
+      "sentence": "3，4，___"
+    },
+    {
+      "id": "number-6",
+      "answer": "六",
+      "accept": [
+        "6"
+      ],
+      "sentence": "4，5，___"
+    },
+    {
+      "id": "number-7",
+      "answer": "七",
+      "accept": [
+        "7"
+      ],
+      "sentence": "5，6，___"
+    },
+    {
+      "id": "number-8",
+      "answer": "八",
+      "accept": [
+        "8"
+      ],
+      "sentence": "6，7，___"
+    },
+    {
+      "id": "number-9",
+      "answer": "九",
+      "accept": [
+        "9"
+      ],
+      "sentence": "7，8，___"
+    },
+    {
+      "id": "number-10",
+      "answer": "十",
+      "accept": [
+        "10"
+      ],
+      "sentence": "8，9，___"
+    },
+    {
+      "id": "day-wednesday",
+      "answer": "星期三",
+      "accept": [
+        "周三",
+        "礼拜三"
+      ],
+      "sentence": "星期一，星期二，___"
+    },
+    {
+      "id": "day-thursday",
+      "answer": "星期四",
+      "accept": [
+        "周四",
+        "礼拜四"
+      ],
+      "sentence": "星期二，星期三，___"
+    },
+    {
+      "id": "day-friday",
+      "answer": "星期五",
+      "accept": [
+        "周五",
+        "礼拜五"
+      ],
+      "sentence": "星期三，星期四，___"
+    },
+    {
+      "id": "day-saturday",
+      "answer": "星期六",
+      "accept": [
+        "周六",
+        "礼拜六"
+      ],
+      "sentence": "星期四，星期五，___"
+    },
+    {
+      "id": "day-sunday",
+      "answer": "星期日",
+      "accept": [
+        "星期天",
+        "周日",
+        "礼拜天"
+      ],
+      "sentence": "星期五，星期六，___"
+    },
+    {
+      "id": "day-monday",
+      "answer": "星期一",
+      "accept": [
+        "周一",
+        "礼拜一"
+      ],
+      "sentence": "星期六，星期日，___"
+    },
+    {
+      "id": "day-tuesday",
+      "answer": "星期二",
+      "accept": [
+        "周二",
+        "礼拜二"
+      ],
+      "sentence": "星期日，星期一，___"
+    }
+  ]
+}

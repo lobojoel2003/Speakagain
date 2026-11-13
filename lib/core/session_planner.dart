@@ -50,7 +50,15 @@ class SessionPlanner {
     }
 
     int group(ItemProgress p) => p.isNew ? 1 : (p.isDue(now) ? 0 : 2);
-    final order = {for (var i = 0; i < candidates.length; i++) candidates[i].item: i};
+    // New items take turns between packs (first of each pack, then second...),
+    // so a session mixes words, sentences and phrases.
+    final order = <PackItem, int>{};
+    for (var p = 0; p < packs.length; p++) {
+      final items = packs[p].items;
+      for (var i = 0; i < items.length; i++) {
+        order.putIfAbsent(items[i], () => i * packs.length + p);
+      }
+    }
     candidates.sort((a, b) {
       final g = group(a.state).compareTo(group(b.state));
       if (g != 0) return g;
@@ -68,19 +76,41 @@ class SessionPlanner {
     // while the due words still come in this session.
     if (random != null) chosen.shuffle(random);
 
-    return [
-      for (final c in chosen) PracticeTask(c.pack, c.item, only ?? exerciseFor(c.pack, c.item, c.state)),
-    ];
+    return [for (final c in chosen) PracticeTask(c.pack, c.item, only ?? exerciseFor(c.pack, c.item, c.state))];
   }
 
   /// The exercise for [item] in a mixed session, by how well it is known.
   static ExerciseType exerciseFor(Pack pack, PackItem item, ItemProgress state) {
     bool can(ExerciseType t) => pack.exercises.contains(t) && item.supports(t);
     final ladder = switch (state.box) {
-      0 => const [ExerciseType.repeat, ExerciseType.listen, ExerciseType.read, ExerciseType.complete, ExerciseType.name],
-      1 => const [ExerciseType.listen, ExerciseType.repeat, ExerciseType.read, ExerciseType.complete, ExerciseType.name],
-      2 => const [ExerciseType.read, ExerciseType.complete, ExerciseType.repeat, ExerciseType.name, ExerciseType.listen],
-      _ => const [ExerciseType.name, ExerciseType.complete, ExerciseType.read, ExerciseType.repeat, ExerciseType.listen],
+      0 => const [
+        ExerciseType.repeat,
+        ExerciseType.listen,
+        ExerciseType.read,
+        ExerciseType.complete,
+        ExerciseType.name,
+      ],
+      1 => const [
+        ExerciseType.listen,
+        ExerciseType.repeat,
+        ExerciseType.read,
+        ExerciseType.complete,
+        ExerciseType.name,
+      ],
+      2 => const [
+        ExerciseType.read,
+        ExerciseType.complete,
+        ExerciseType.repeat,
+        ExerciseType.name,
+        ExerciseType.listen,
+      ],
+      _ => const [
+        ExerciseType.name,
+        ExerciseType.complete,
+        ExerciseType.read,
+        ExerciseType.repeat,
+        ExerciseType.listen,
+      ],
     };
     for (final type in ladder) {
       if (can(type)) return type;
@@ -91,10 +121,11 @@ class SessionPlanner {
   /// Picture choices for a listening turn: the answer plus [count] - 1 others
   /// from the same pack with different pictures and words, in random order.
   static List<PackItem> choicesFor(Pack pack, PackItem answer, int count, math.Random random) {
-    final others = pack.items
-        .where((i) => i.hasImage && i.id != answer.id && i.image != answer.image && i.answer != answer.answer)
-        .toList()
-      ..shuffle(random);
+    final others =
+        pack.items
+            .where((i) => i.hasImage && i.id != answer.id && i.image != answer.image && i.answer != answer.answer)
+            .toList()
+          ..shuffle(random);
     // Prefer pictures from another category first, so the choice is about the
     // word rather than a fine distinction (an easier, errorless start).
     others.sort((a, b) {

@@ -55,11 +55,7 @@ class AnswerMatcher {
 
   final Strictness strictness;
 
-  AnswerCheck check({
-    required String heard,
-    required List<String> answers,
-    required String language,
-  }) {
+  AnswerCheck check({required String heard, required List<String> answers, required String language}) {
     final normalizer = TextNormalizer(language);
     final heardText = normalizer.normalize(heard);
     if (heardText.isEmpty || answers.isEmpty) return AnswerCheck(MatchLevel.notYet, 0, heard);
@@ -80,8 +76,8 @@ class AnswerMatcher {
     final level = best >= strictness.said
         ? MatchLevel.said
         : best >= strictness.nearly
-            ? MatchLevel.nearly
-            : MatchLevel.notYet;
+        ? MatchLevel.nearly
+        : MatchLevel.notYet;
     return AnswerCheck(level, best, heard, matched: bestAnswer);
   }
 
@@ -112,10 +108,7 @@ class AnswerMatcher {
     }
     // Compare without word breaks too: recognisers split and join words ("man sana").
     final joinedTarget = targetWords.join();
-    return math.max(
-      _bestWindow(heardWords, joinedTarget, joiner: ''),
-      similarity(heardWords.join(), joinedTarget),
-    );
+    return math.max(_bestWindow(heardWords, joinedTarget, joiner: ''), similarity(heardWords.join(), joinedTarget));
   }
 
   /// Best similarity between [target] and any run of neighbouring [parts].

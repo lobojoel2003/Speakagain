@@ -1,0 +1,154 @@
+{
+  "$schema": "../../../../schema/pack.schema.json",
+  "format": 1,
+  "id": "pt-finish-the-sentence",
+  "version": "1.0.0",
+  "language": "pt",
+  "title": "Complete a frase",
+  "description": "Frases do dia a dia em que falta uma palavra.",
+  "author": "Speakagain contributors",
+  "license": "CC BY-SA 4.0",
+  "exercises": [
+    "complete"
+  ],
+  "items": [
+    {
+      "id": "sleep-bed",
+      "answer": "cama",
+      "image": "openmoji:1F6CF",
+      "sentence": "Dormimos na ___."
+    },
+    {
+      "id": "sit-chair",
+      "answer": "cadeira",
+      "image": "openmoji:1FA91",
+      "sentence": "Sentamos numa ___."
+    },
+    {
+      "id": "open-key",
+      "answer": "chave",
+      "image": "openmoji:1F511",
+      "sentence": "Abrimos a porta com a ___."
+    },
+    {
+      "id": "read-book",
+      "answer": "livro",
+      "image": "openmoji:1F4D6",
+      "sentence": "Lemos um ___."
+    },
+    {
+      "id": "brush-toothbrush",
+      "answer": "escova de dentes",
+      "accept": [
+        "escova"
+      ],
+      "image": "openmoji:1FAA5",
+      "sentence": "Escovamos os dentes com a ___."
+    },
+    {
+      "id": "cow-milk",
+      "answer": "leite",
+      "image": "openmoji:1F95B",
+      "sentence": "A vaca nos dá ___."
+    },
+    {
+      "id": "morning-coffee",
+      "answer": "café",
+      "accept": [
+        "chá"
+      ],
+      "image": "openmoji:2615",
+      "sentence": "De manhã eu tomo uma xícara de ___."
+    },
+    {
+      "id": "sky-sun",
+      "answer": "sol",
+      "image": "openmoji:2600",
+      "sentence": "O ___ brilha no céu."
+    },
+    {
+      "id": "night-moon",
+      "answer": "lua",
+      "accept": [
+        "estrelas"
+      ],
+      "image": "openmoji:1F319",
+      "sentence": "À noite vemos a ___."
+    },
+    {
+      "id": "see-eyes",
+      "answer": "olhos",
+      "accept": [
+        "olho"
+      ],
+      "image": "openmoji:1F441",
+      "sentence": "Vemos com os ___."
+    },
+    {
+      "id": "hear-ears",
+      "answer": "ouvidos",
+      "accept": [
+        "orelhas",
+        "ouvido",
+        "orelha"
+      ],
+      "image": "openmoji:1F442",
+      "sentence": "Ouvimos com os ___."
+    },
+    {
+      "id": "smell-nose",
+      "answer": "nariz",
+      "image": "openmoji:1F443",
+      "sentence": "Sentimos cheiros com o ___."
+    },
+    {
+      "id": "socks-shoes",
+      "answer": "sapatos",
+      "accept": [
+        "sapato",
+        "tênis"
+      ],
+      "image": "openmoji:1F45F",
+      "sentence": "Coloco as meias e os ___."
+    },
+    {
+      "id": "rain-umbrella",
+      "answer": "guarda-chuva",
+      "accept": [
+        "guarda chuva"
+      ],
+      "image": "openmoji:2602",
+      "sentence": "Quando chove, abrimos o ___."
+    },
+    {
+      "id": "fly-plane",
+      "answer": "avião",
+      "accept": [
+        "pássaro"
+      ],
+      "image": "openmoji:2708",
+      "sentence": "O ___ voa no céu."
+    },
+    {
+      "id": "swim-fish",
+      "answer": "peixe",
+      "image": "openmoji:1F41F",
+      "sentence": "O ___ nada na água."
+    },
+    {
+      "id": "sandwich-bread",
+      "answer": "pão",
+      "image": "openmoji:1F35E",
+      "sentence": "Fazemos um sanduíche com ___."
+    },
+    {
+      "id": "call-phone",
+      "answer": "telefone",
+      "accept": [
+        "celular"
+      ],
+      "image": "openmoji:1F4F1",
+      "sentence": "Para ligar para alguém, usamos o ___."
+    }
+  ]
+}

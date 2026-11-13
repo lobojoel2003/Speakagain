@@ -1,0 +1,148 @@
+{
+  "$schema": "../../../../schema/pack.schema.json",
+  "format": 1,
+  "id": "de-finish-the-sentence",
+  "version": "1.0.0",
+  "language": "de",
+  "title": "Satz vervollständigen",
+  "description": "Alltagssätze, in denen ein Wort fehlt.",
+  "author": "Speakagain contributors",
+  "license": "CC BY-SA 4.0",
+  "exercises": [
+    "complete"
+  ],
+  "items": [
+    {
+      "id": "sleep-bed",
+      "answer": "Bett",
+      "image": "openmoji:1F6CF",
+      "sentence": "Wir schlafen im ___."
+    },
+    {
+      "id": "sit-chair",
+      "answer": "Stuhl",
+      "image": "openmoji:1FA91",
+      "sentence": "Wir sitzen auf einem ___."
+    },
+    {
+      "id": "open-key",
+      "answer": "Schlüssel",
+      "image": "openmoji:1F511",
+      "sentence": "Wir öffnen die Tür mit dem ___."
+    },
+    {
+      "id": "read-book",
+      "answer": "Buch",
+      "image": "openmoji:1F4D6",
+      "sentence": "Wir lesen ein ___."
+    },
+    {
+      "id": "brush-toothbrush",
+      "answer": "Zahnbürste",
+      "image": "openmoji:1FAA5",
+      "sentence": "Wir putzen die Zähne mit der ___."
+    },
+    {
+      "id": "cow-milk",
+      "answer": "Milch",
+      "image": "openmoji:1F95B",
+      "sentence": "Die Kuh gibt uns ___."
+    },
+    {
+      "id": "morning-coffee",
+      "answer": "Kaffee",
+      "accept": [
+        "Tee"
+      ],
+      "image": "openmoji:2615",
+      "sentence": "Morgens trinke ich eine Tasse ___."
+    },
+    {
+      "id": "sky-sun",
+      "answer": "Sonne",
+      "image": "openmoji:2600",
+      "sentence": "Die ___ scheint am Himmel."
+    },
+    {
+      "id": "night-moon",
+      "answer": "Mond",
+      "accept": [
+        "Sterne"
+      ],
+      "image": "openmoji:1F319",
+      "sentence": "Nachts sieht man den ___."
+    },
+    {
+      "id": "see-eyes",
+      "answer": "Augen",
+      "accept": [
+        "Auge"
+      ],
+      "image": "openmoji:1F441",
+      "sentence": "Wir sehen mit den ___."
+    },
+    {
+      "id": "hear-ears",
+      "answer": "Ohren",
+      "accept": [
+        "Ohr"
+      ],
+      "image": "openmoji:1F442",
+      "sentence": "Wir hören mit den ___."
+    },
+    {
+      "id": "smell-nose",
+      "answer": "Nase",
+      "image": "openmoji:1F443",
+      "sentence": "Wir riechen mit der ___."
+    },
+    {
+      "id": "socks-shoes",
+      "answer": "Schuhe",
+      "accept": [
+        "Schuh"
+      ],
+      "image": "openmoji:1F45F",
+      "sentence": "Ich ziehe Socken und ___ an."
+    },
+    {
+      "id": "rain-umbrella",
+      "answer": "Regenschirm",
+      "accept": [
+        "Schirm"
+      ],
+      "image": "openmoji:2602",
+      "sentence": "Wenn es regnet, spanne ich den ___ auf."
+    },
+    {
+      "id": "fly-plane",
+      "answer": "Flugzeug",
+      "accept": [
+        "Vogel"
+      ],
+      "image": "openmoji:2708",
+      "sentence": "Ein ___ fliegt am Himmel."
+    },
+    {
+      "id": "swim-fish",
+      "answer": "Fisch",
+      "image": "openmoji:1F41F",
+      "sentence": "Ein ___ schwimmt im Wasser."
+    },
+    {
+      "id": "sandwich-bread",
+      "answer": "Brot",
+      "image": "openmoji:1F35E",
+      "sentence": "Für ein Sandwich braucht man ___."
+    },
+    {
+      "id": "call-phone",
+      "answer": "Telefon",
+      "accept": [
+        "Handy"
+      ],
+      "image": "openmoji:1F4F1",
+      "sentence": "Zum Anrufen nehme ich das ___."
+    }
+  ]
+}

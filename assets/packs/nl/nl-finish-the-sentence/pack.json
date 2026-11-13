@@ -1,0 +1,145 @@
+{
+  "$schema": "../../../../schema/pack.schema.json",
+  "format": 1,
+  "id": "nl-finish-the-sentence",
+  "version": "1.0.0",
+  "language": "nl",
+  "title": "Maak de zin af",
+  "description": "Zinnen van elke dag waarin een woord ontbreekt.",
+  "author": "Speakagain contributors",
+  "license": "CC BY-SA 4.0",
+  "exercises": [
+    "complete"
+  ],
+  "items": [
+    {
+      "id": "sleep-bed",
+      "answer": "bed",
+      "image": "openmoji:1F6CF",
+      "sentence": "We slapen in een ___."
+    },
+    {
+      "id": "sit-chair",
+      "answer": "stoel",
+      "image": "openmoji:1FA91",
+      "sentence": "We zitten op een ___."
+    },
+    {
+      "id": "open-key",
+      "answer": "sleutel",
+      "image": "openmoji:1F511",
+      "sentence": "We openen de deur met een ___."
+    },
+    {
+      "id": "read-book",
+      "answer": "boek",
+      "image": "openmoji:1F4D6",
+      "sentence": "We lezen een ___."
+    },
+    {
+      "id": "brush-toothbrush",
+      "answer": "tandenborstel",
+      "image": "openmoji:1FAA5",
+      "sentence": "We poetsen onze tanden met een ___."
+    },
+    {
+      "id": "cow-milk",
+      "answer": "melk",
+      "image": "openmoji:1F95B",
+      "sentence": "Een koe geeft ons ___."
+    },
+    {
+      "id": "morning-coffee",
+      "answer": "koffie",
+      "accept": [
+        "thee"
+      ],
+      "image": "openmoji:2615",
+      "sentence": "’s Ochtends drink ik een kopje ___."
+    },
+    {
+      "id": "sky-sun",
+      "answer": "zon",
+      "image": "openmoji:2600",
+      "sentence": "De ___ schijnt aan de hemel."
+    },
+    {
+      "id": "night-moon",
+      "answer": "maan",
+      "accept": [
+        "sterren"
+      ],
+      "image": "openmoji:1F319",
+      "sentence": "’s Nachts zie je de ___."
+    },
+    {
+      "id": "see-eyes",
+      "answer": "ogen",
+      "accept": [
+        "oog"
+      ],
+      "image": "openmoji:1F441",
+      "sentence": "We kijken met onze ___."
+    },
+    {
+      "id": "hear-ears",
+      "answer": "oren",
+      "accept": [
+        "oor"
+      ],
+      "image": "openmoji:1F442",
+      "sentence": "We horen met onze ___."
+    },
+    {
+      "id": "smell-nose",
+      "answer": "neus",
+      "image": "openmoji:1F443",
+      "sentence": "We ruiken met onze ___."
+    },
+    {
+      "id": "socks-shoes",
+      "answer": "schoenen",
+      "accept": [
+        "schoen"
+      ],
+      "image": "openmoji:1F45F",
+      "sentence": "Ik trek mijn sokken en ___ aan."
+    },
+    {
+      "id": "rain-umbrella",
+      "answer": "paraplu",
+      "image": "openmoji:2602",
+      "sentence": "Als het regent, doe ik mijn ___ open."
+    },
+    {
+      "id": "fly-plane",
+      "answer": "vliegtuig",
+      "accept": [
+        "vogel"
+      ],
+      "image": "openmoji:2708",
+      "sentence": "Een ___ vliegt in de lucht."
+    },
+    {
+      "id": "swim-fish",
+      "answer": "vis",
+      "image": "openmoji:1F41F",
+      "sentence": "Een ___ zwemt in het water."
+    },
+    {
+      "id": "sandwich-bread",
+      "answer": "brood",
+      "image": "openmoji:1F35E",
+      "sentence": "Een boterham maak je van ___."
+    },
+    {
+      "id": "call-phone",
+      "answer": "telefoon",
+      "accept": [
+        "mobiel"
+      ],
+      "image": "openmoji:1F4F1",
+      "sentence": "Om iemand te bellen, pak je de ___."
+    }
+  ]
+}

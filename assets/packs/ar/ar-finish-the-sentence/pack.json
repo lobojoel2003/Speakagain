@@ -1,0 +1,171 @@
+{
+  "$schema": "../../../../schema/pack.schema.json",
+  "format": 1,
+  "id": "ar-finish-the-sentence",
+  "version": "1.0.0",
+  "language": "ar",
+  "title": "أكمل الجملة",
+  "description": "جمل يومية تنقصها كلمة.",
+  "author": "Speakagain contributors",
+  "license": "CC BY-SA 4.0",
+  "exercises": [
+    "complete"
+  ],
+  "items": [
+    {
+      "id": "sleep-bed",
+      "answer": "السرير",
+      "accept": [
+        "سرير"
+      ],
+      "image": "openmoji:1F6CF",
+      "sentence": "ننام على ___."
+    },
+    {
+      "id": "sit-chair",
+      "answer": "الكرسي",
+      "accept": [
+        "كرسي"
+      ],
+      "image": "openmoji:1FA91",
+      "sentence": "نجلس على ___."
+    },
+    {
+      "id": "open-key",
+      "answer": "المفتاح",
+      "accept": [
+        "مفتاح"
+      ],
+      "image": "openmoji:1F511",
+      "sentence": "نفتح الباب باستخدام ___."
+    },
+    {
+      "id": "read-book",
+      "answer": "الكتاب",
+      "accept": [
+        "كتاب"
+      ],
+      "image": "openmoji:1F4D6",
+      "sentence": "نقرأ في ___."
+    },
+    {
+      "id": "brush-toothbrush",
+      "answer": "فرشاة الأسنان",
+      "accept": [
+        "فرشاة"
+      ],
+      "image": "openmoji:1FAA5",
+      "sentence": "ننظف أسناننا باستخدام ___."
+    },
+    {
+      "id": "cow-milk",
+      "answer": "الحليب",
+      "accept": [
+        "حليب",
+        "اللبن"
+      ],
+      "image": "openmoji:1F95B",
+      "sentence": "البقرة تعطينا ___."
+    },
+    {
+      "id": "morning-coffee",
+      "answer": "قهوة",
+      "accept": [
+        "شاي"
+      ],
+      "image": "openmoji:2615",
+      "sentence": "في الصباح أشرب فنجان ___."
+    },
+    {
+      "id": "sky-sun",
+      "answer": "الشمس",
+      "image": "openmoji:2600",
+      "sentence": "___ تشرق في السماء."
+    },
+    {
+      "id": "night-moon",
+      "answer": "القمر",
+      "accept": [
+        "النجوم"
+      ],
+      "image": "openmoji:1F319",
+      "sentence": "في الليل نرى ___."
+    },
+    {
+      "id": "see-eyes",
+      "answer": "العينين",
+      "accept": [
+        "العيون",
+        "عيون",
+        "عين"
+      ],
+      "image": "openmoji:1F441",
+      "sentence": "نستخدم ___ لنرى."
+    },
+    {
+      "id": "hear-ears",
+      "answer": "الأذنين",
+      "accept": [
+        "الأذن",
+        "أذن"
+      ],
+      "image": "openmoji:1F442",
+      "sentence": "نستخدم ___ لنسمع."
+    },
+    {
+      "id": "smell-nose",
+      "answer": "الأنف",
+      "image": "openmoji:1F443",
+      "sentence": "نستخدم ___ لنشم."
+    },
+    {
+      "id": "socks-shoes",
+      "answer": "الحذاء",
+      "image": "openmoji:1F45F",
+      "sentence": "ألبس الجوارب ثم ___."
+    },
+    {
+      "id": "rain-umbrella",
+      "answer": "المظلة",
+      "accept": [
+        "الشمسية"
+      ],
+      "image": "openmoji:2602",
+      "sentence": "عندما تمطر نفتح ___."
+    },
+    {
+      "id": "fly-plane",
+      "answer": "الطائرة",
+      "accept": [
+        "العصفور"
+      ],
+      "image": "openmoji:2708",
+      "sentence": "___ تطير في السماء."
+    },
+    {
+      "id": "swim-fish",
+      "answer": "السمكة",
+      "accept": [
+        "السمك"
+      ],
+      "image": "openmoji:1F41F",
+      "sentence": "___ تسبح في الماء."
+    },
+    {
+      "id": "sandwich-bread",
+      "answer": "الخبز",
+      "image": "openmoji:1F35E",
+      "sentence": "نصنع الشطيرة من ___."
+    },
+    {
+      "id": "call-phone",
+      "answer": "الهاتف",
+      "accept": [
+        "الجوال",
+        "التلفون"
+      ],
+      "image": "openmoji:1F4F1",
+      "sentence": "نتصل بالناس عن طريق ___."
+    }
+  ]
+}

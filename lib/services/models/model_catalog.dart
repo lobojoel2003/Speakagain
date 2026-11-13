@@ -10,11 +10,8 @@ import '../../models/settings.dart';
 class ModelFile {
   const ModelFile({required this.name, required this.bytes, required this.sha256});
 
-  factory ModelFile.fromJson(Map<String, Object?> json) => ModelFile(
-        name: json['name']! as String,
-        bytes: json['bytes']! as int,
-        sha256: json['sha256']! as String,
-      );
+  factory ModelFile.fromJson(Map<String, Object?> json) =>
+      ModelFile(name: json['name']! as String, bytes: json['bytes']! as int, sha256: json['sha256']! as String);
 
   final String name;
   final int bytes;
@@ -31,13 +28,13 @@ abstract class Downloadable {
 @immutable
 class RecognizerModel extends Downloadable {
   RecognizerModel.fromJson(Map<String, Object?> json)
-      : id = json['id']! as String,
-        size = RecognizerSize.values.byName(json['size']! as String),
-        name = json['name']! as String,
-        license = json['license']! as String,
-        encoder = ModelFile.fromJson((json['encoder']! as Map).cast()),
-        decoder = ModelFile.fromJson((json['decoder']! as Map).cast()),
-        tokens = ModelFile.fromJson((json['tokens']! as Map).cast());
+    : id = json['id']! as String,
+      size = RecognizerSize.values.byName(json['size']! as String),
+      name = json['name']! as String,
+      license = json['license']! as String,
+      encoder = ModelFile.fromJson((json['encoder']! as Map).cast()),
+      decoder = ModelFile.fromJson((json['decoder']! as Map).cast()),
+      tokens = ModelFile.fromJson((json['tokens']! as Map).cast());
 
   @override
   final String id;
@@ -55,15 +52,15 @@ class RecognizerModel extends Downloadable {
 @immutable
 class VoiceModel extends Downloadable {
   VoiceModel.fromJson(Map<String, Object?> json)
-      : id = json['id']! as String,
-        name = json['name']! as String,
-        language = json['language']! as String,
-        locale = json['locale']! as String,
-        gender = json['gender']! as String,
-        license = json['license']! as String,
-        model = ModelFile.fromJson((json['model']! as Map).cast()),
-        tokens = ModelFile.fromJson((json['tokens']! as Map).cast()),
-        modelCard = ModelFile.fromJson((json['modelCard']! as Map).cast());
+    : id = json['id']! as String,
+      name = json['name']! as String,
+      language = json['language']! as String,
+      locale = json['locale']! as String,
+      gender = json['gender']! as String,
+      license = json['license']! as String,
+      model = ModelFile.fromJson((json['model']! as Map).cast()),
+      tokens = ModelFile.fromJson((json['tokens']! as Map).cast()),
+      modelCard = ModelFile.fromJson((json['modelCard']! as Map).cast());
 
   @override
   final String id;
@@ -84,9 +81,9 @@ class VoiceModel extends Downloadable {
 @immutable
 class VoiceData extends Downloadable {
   VoiceData.fromJson(Map<String, Object?> json)
-      : id = json['id']! as String,
-        license = json['license']! as String,
-        archive = ModelFile.fromJson((json['archive']! as Map).cast());
+    : id = json['id']! as String,
+      license = json['license']! as String,
+      archive = ModelFile.fromJson((json['archive']! as Map).cast());
 
   @override
   final String id;
@@ -101,13 +98,11 @@ class VoiceData extends Downloadable {
 @immutable
 class ModelCatalog {
   ModelCatalog.fromJson(Map<String, Object?> json)
-      : release = json['release']! as String,
-        baseUrl = json['baseUrl']! as String,
-        recognizers = [
-          for (final r in json['recognizers']! as List) RecognizerModel.fromJson((r as Map).cast()),
-        ],
-        voiceData = json['voiceData'] == null ? null : VoiceData.fromJson((json['voiceData']! as Map).cast()),
-        voices = [for (final v in json['voices']! as List) VoiceModel.fromJson((v as Map).cast())];
+    : release = json['release']! as String,
+      baseUrl = json['baseUrl']! as String,
+      recognizers = [for (final r in json['recognizers']! as List) RecognizerModel.fromJson((r as Map).cast())],
+      voiceData = json['voiceData'] == null ? null : VoiceData.fromJson((json['voiceData']! as Map).cast()),
+      voices = [for (final v in json['voices']! as List) VoiceModel.fromJson((v as Map).cast())];
 
   static const asset = 'assets/models/catalog.json';
 

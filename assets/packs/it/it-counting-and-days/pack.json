@@ -1,0 +1,117 @@
+{
+  "$schema": "../../../../schema/pack.schema.json",
+  "format": 1,
+  "id": "it-counting-and-days",
+  "version": "1.0.0",
+  "language": "it",
+  "title": "Numeri e giorni",
+  "description": "I numeri e i giorni della settimana, in ordine.",
+  "author": "Speakagain contributors",
+  "license": "CC BY-SA 4.0",
+  "exercises": [
+    "complete",
+    "read",
+    "repeat"
+  ],
+  "items": [
+    {
+      "id": "number-3",
+      "answer": "tre",
+      "accept": [
+        "3"
+      ],
+      "sentence": "1, 2, ___"
+    },
+    {
+      "id": "number-4",
+      "answer": "quattro",
+      "accept": [
+        "4"
+      ],
+      "sentence": "2, 3, ___"
+    },
+    {
+      "id": "number-5",
+      "answer": "cinque",
+      "accept": [
+        "5"
+      ],
+      "sentence": "3, 4, ___"
+    },
+    {
+      "id": "number-6",
+      "answer": "sei",
+      "accept": [
+        "6"
+      ],
+      "sentence": "4, 5, ___"
+    },
+    {
+      "id": "number-7",
+      "answer": "sette",
+      "accept": [
+        "7"
+      ],
+      "sentence": "5, 6, ___"
+    },
+    {
+      "id": "number-8",
+      "answer": "otto",
+      "accept": [
+        "8"
+      ],
+      "sentence": "6, 7, ___"
+    },
+    {
+      "id": "number-9",
+      "answer": "nove",
+      "accept": [
+        "9"
+      ],
+      "sentence": "7, 8, ___"
+    },
+    {
+      "id": "number-10",
+      "answer": "dieci",
+      "accept": [
+        "10"
+      ],
+      "sentence": "8, 9, ___"
+    },
+    {
+      "id": "day-wednesday",
+      "answer": "mercoledì",
+      "sentence": "lunedì, martedì, ___"
+    },
+    {
+      "id": "day-thursday",
+      "answer": "giovedì",
+      "sentence": "martedì, mercoledì, ___"
+    },
+    {
+      "id": "day-friday",
+      "answer": "venerdì",
+      "sentence": "mercoledì, giovedì, ___"
+    },
+    {
+      "id": "day-saturday",
+      "answer": "sabato",
+      "sentence": "giovedì, venerdì, ___"
+    },
+    {
+      "id": "day-sunday",
+      "answer": "domenica",
+      "sentence": "venerdì, sabato, ___"
+    },
+    {
+      "id": "day-monday",
+      "answer": "lunedì",
+      "sentence": "sabato, domenica, ___"
+    },
+    {
+      "id": "day-tuesday",
+      "answer": "martedì",
+      "sentence": "domenica, lunedì, ___"
+    }
+  ]
+}

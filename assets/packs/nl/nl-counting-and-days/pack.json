@@ -1,0 +1,117 @@
+{
+  "$schema": "../../../../schema/pack.schema.json",
+  "format": 1,
+  "id": "nl-counting-and-days",
+  "version": "1.0.0",
+  "language": "nl",
+  "title": "Tellen en dagen",
+  "description": "Getallen en de dagen van de week, op volgorde.",
+  "author": "Speakagain contributors",
+  "license": "CC BY-SA 4.0",
+  "exercises": [
+    "complete",
+    "read",
+    "repeat"
+  ],
+  "items": [
+    {
+      "id": "number-3",
+      "answer": "drie",
+      "accept": [
+        "3"
+      ],
+      "sentence": "1, 2, ___"
+    },
+    {
+      "id": "number-4",
+      "answer": "vier",
+      "accept": [
+        "4"
+      ],
+      "sentence": "2, 3, ___"
+    },
+    {
+      "id": "number-5",
+      "answer": "vijf",
+      "accept": [
+        "5"
+      ],
+      "sentence": "3, 4, ___"
+    },
+    {
+      "id": "number-6",
+      "answer": "zes",
+      "accept": [
+        "6"
+      ],
+      "sentence": "4, 5, ___"
+    },
+    {
+      "id": "number-7",
+      "answer": "zeven",
+      "accept": [
+        "7"
+      ],
+      "sentence": "5, 6, ___"
+    },
+    {
+      "id": "number-8",
+      "answer": "acht",
+      "accept": [
+        "8"
+      ],
+      "sentence": "6, 7, ___"
+    },
+    {
+      "id": "number-9",
+      "answer": "negen",
+      "accept": [
+        "9"
+      ],
+      "sentence": "7, 8, ___"
+    },
+    {
+      "id": "number-10",
+      "answer": "tien",
+      "accept": [
+        "10"
+      ],
+      "sentence": "8, 9, ___"
+    },
+    {
+      "id": "day-wednesday",
+      "answer": "woensdag",
+      "sentence": "maandag, dinsdag, ___"
+    },
+    {
+      "id": "day-thursday",
+      "answer": "donderdag",
+      "sentence": "dinsdag, woensdag, ___"
+    },
+    {
+      "id": "day-friday",
+      "answer": "vrijdag",
+      "sentence": "woensdag, donderdag, ___"
+    },
+    {
+      "id": "day-saturday",
+      "answer": "zaterdag",
+      "sentence": "donderdag, vrijdag, ___"
+    },
+    {
+      "id": "day-sunday",
+      "answer": "zondag",
+      "sentence": "vrijdag, zaterdag, ___"
+    },
+    {
+      "id": "day-monday",
+      "answer": "maandag",
+      "sentence": "zaterdag, zondag, ___"
+    },
+    {
+      "id": "day-tuesday",
+      "answer": "dinsdag",
+      "sentence": "zondag, maandag, ___"
+    }
+  ]
+}

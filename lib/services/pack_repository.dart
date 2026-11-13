@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'dart:typed_data';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
@@ -34,8 +33,8 @@ class PackRepository {
     loadProblems.clear();
 
     final manifest = await AssetManifest.loadFromAssetBundle(_bundle);
-    final packFiles = manifest.listAssets().where((a) => a.startsWith('assets/packs/') && a.endsWith('/pack.json')).toList()
-      ..sort();
+    final packFiles =
+        manifest.listAssets().where((a) => a.startsWith('assets/packs/') && a.endsWith('/pack.json')).toList()..sort();
     for (final path in packFiles) {
       try {
         final json = jsonDecode(await _bundle.loadString(path));

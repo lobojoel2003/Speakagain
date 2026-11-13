@@ -1,5 +1,3 @@
-import 'dart:typed_data';
-
 import 'package:flutter/foundation.dart';
 
 import 'speech_engine_web.dart' if (dart.library.io) 'speech_engine_io.dart' as impl;
@@ -68,7 +66,12 @@ abstract class SpeechEngine {
   Future<void> prepareRecognizer(RecognizerFiles files, String language);
 
   /// What was said, as text. Loads the model first if needed.
-  Future<String> transcribe(Float32List samples, int sampleRate, {required RecognizerFiles files, required String language});
+  Future<String> transcribe(
+    Float32List samples,
+    int sampleRate, {
+    required RecognizerFiles files,
+    required String language,
+  });
 
   Future<SynthesizedAudio> synthesize(String text, {required VoiceFiles files, double speed = 1.0});
 

@@ -4,6 +4,11 @@ plugins {
     id("dev.flutter.flutter-gradle-plugin")
 }
 
+// Release signing comes from the environment (CI secrets, see docs/releasing.md).
+// Without it, release builds are signed with the debug key so they still install
+// for testing.
+val releaseKeystore: String? = System.getenv("SPEAKAGAIN_KEYSTORE_FILE")?.takeIf { it.isNotBlank() }
+
 android {
     namespace = "io.github.lobojoel2003.speakagain"
     compileSdk = flutter.compileSdkVersion
@@ -15,25 +20,42 @@ android {
     }
 
     defaultConfig {
-        // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
         applicationId = "io.github.lobojoel2003.speakagain"
-        // You can update the following values to match your application needs.
-        // For more information, see: https://flutter.dev/to/review-gradle-config.
-        minSdk = flutter.minSdkVersion
+        // Android 7.0+: covers older and low-cost devices many stroke survivors use.
+        minSdk = maxOf(24, flutter.minSdkVersion)
         targetSdk = flutter.targetSdkVersion
-        // Uses the version code from pubspec.yaml. When using split APKs, 1000 * ABI_VERSION
-        // is added automatically by Flutter. (https://developer.android.com/studio/build/configure-apk-splits#configure-APK-versions)
-        // You can force using the value of versionCode by specifying the `-P force-version-code-ignoring-abi=true`
-        // flag during build.
+        // From pubspec.yaml: version 1.2.3+10203 -> versionName 1.2.3, versionCode 10203.
+        // Release builds pass -Pforce-version-code-ignoring-abi=true so every APK of a
+        // release (per processor and universal) shares one versionCode.
         versionCode = flutter.versionCode
         versionName = flutter.versionName
     }
 
+    signingConfigs {
+        if (releaseKeystore != null) {
+            create("release") {
+                storeFile = file(releaseKeystore)
+                storePassword = System.getenv("SPEAKAGAIN_KEYSTORE_PASSWORD")
+                keyAlias = System.getenv("SPEAKAGAIN_KEY_ALIAS")
+                keyPassword = System.getenv("SPEAKAGAIN_KEY_PASSWORD")
+            }
+        }
+    }
+
     buildTypes {
         release {
-            // TODO: Add your own signing config for the release build.
-            // Signing with the debug keys for now, so `flutter run --release` works.
-            signingConfig = signingConfigs.getByName("debug")
+            signingConfig = if (releaseKeystore != null) {
+                signingConfigs.getByName("release")
+            } else {
+                signingConfigs.getByName("debug")
+            }
+        }
+    }
+
+    packaging {
+        jniLibs {
+            // Store native libraries uncompressed and page-aligned (Android 15+ 16 KB pages).
+            useLegacyPackaging = false
         }
     }
 }

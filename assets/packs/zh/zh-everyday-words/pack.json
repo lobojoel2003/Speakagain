@@ -1,0 +1,386 @@
+{
+  "$schema": "../../../../schema/pack.schema.json",
+  "format": 1,
+  "id": "zh-everyday-words",
+  "version": "1.0.0",
+  "language": "zh",
+  "title": "日常词语",
+  "description": "食物、家居、衣物、动物、自然、交通和身体。",
+  "author": "Speakagain contributors",
+  "license": "CC BY-SA 4.0",
+  "exercises": [
+    "name",
+    "listen",
+    "read",
+    "repeat"
+  ],
+  "categories": {
+    "food": "吃的或喝的东西",
+    "home": "家里的东西",
+    "clothes": "穿戴的东西",
+    "animal": "一种动物",
+    "nature": "在外面看到的东西",
+    "travel": "交通工具",
+    "body": "身体的一部分"
+  },
+  "items": [
+    {
+      "id": "apple",
+      "answer": "苹果",
+      "image": "openmoji:1F34E",
+      "category": "food"
+    },
+    {
+      "id": "banana",
+      "answer": "香蕉",
+      "image": "openmoji:1F34C",
+      "category": "food"
+    },
+    {
+      "id": "grapes",
+      "answer": "葡萄",
+      "image": "openmoji:1F347",
+      "category": "food"
+    },
+    {
+      "id": "carrot",
+      "answer": "胡萝卜",
+      "accept": [
+        "红萝卜",
+        "萝卜"
+      ],
+      "image": "openmoji:1F955",
+      "category": "food"
+    },
+    {
+      "id": "bread",
+      "answer": "面包",
+      "image": "openmoji:1F35E",
+      "category": "food"
+    },
+    {
+      "id": "cheese",
+      "answer": "奶酪",
+      "accept": [
+        "芝士",
+        "乳酪"
+      ],
+      "image": "openmoji:1F9C0",
+      "category": "food"
+    },
+    {
+      "id": "egg",
+      "answer": "鸡蛋",
+      "accept": [
+        "蛋"
+      ],
+      "image": "openmoji:1F95A",
+      "category": "food"
+    },
+    {
+      "id": "cake",
+      "answer": "蛋糕",
+      "image": "openmoji:1F370",
+      "category": "food"
+    },
+    {
+      "id": "water",
+      "answer": "水",
+      "image": "openmoji:1F4A7",
+      "category": "food"
+    },
+    {
+      "id": "milk",
+      "answer": "牛奶",
+      "accept": [
+        "奶"
+      ],
+      "image": "openmoji:1F95B",
+      "category": "food"
+    },
+    {
+      "id": "tea",
+      "answer": "茶",
+      "image": "openmoji:1F375",
+      "category": "food"
+    },
+    {
+      "id": "coffee",
+      "answer": "咖啡",
+      "image": "openmoji:2615",
+      "category": "food"
+    },
+    {
+      "id": "house",
+      "answer": "房子",
+      "accept": [
+        "家",
+        "房屋"
+      ],
+      "image": "openmoji:1F3E0",
+      "category": "home"
+    },
+    {
+      "id": "bed",
+      "answer": "床",
+      "image": "openmoji:1F6CF",
+      "category": "home"
+    },
+    {
+      "id": "chair",
+      "answer": "椅子",
+      "image": "openmoji:1FA91",
+      "category": "home"
+    },
+    {
+      "id": "door",
+      "answer": "门",
+      "image": "openmoji:1F6AA",
+      "category": "home"
+    },
+    {
+      "id": "key",
+      "answer": "钥匙",
+      "image": "openmoji:1F511",
+      "category": "home"
+    },
+    {
+      "id": "clock",
+      "answer": "钟",
+      "accept": [
+        "时钟",
+        "钟表"
+      ],
+      "image": "openmoji:1F570",
+      "category": "home"
+    },
+    {
+      "id": "phone",
+      "answer": "电话",
+      "accept": [
+        "手机"
+      ],
+      "image": "openmoji:1F4F1",
+      "category": "home"
+    },
+    {
+      "id": "book",
+      "answer": "书",
+      "image": "openmoji:1F4D6",
+      "category": "home"
+    },
+    {
+      "id": "glasses",
+      "answer": "眼镜",
+      "image": "openmoji:1F453",
+      "category": "home"
+    },
+    {
+      "id": "toothbrush",
+      "answer": "牙刷",
+      "image": "openmoji:1FAA5",
+      "category": "home"
+    },
+    {
+      "id": "umbrella",
+      "answer": "雨伞",
+      "accept": [
+        "伞"
+      ],
+      "image": "openmoji:2602",
+      "category": "home"
+    },
+    {
+      "id": "shoe",
+      "answer": "鞋",
+      "accept": [
+        "鞋子"
+      ],
+      "image": "openmoji:1F45F",
+      "category": "clothes"
+    },
+    {
+      "id": "shirt",
+      "answer": "衬衫",
+      "accept": [
+        "T恤",
+        "衣服",
+        "上衣"
+      ],
+      "image": "openmoji:1F455",
+      "category": "clothes"
+    },
+    {
+      "id": "hat",
+      "answer": "帽子",
+      "image": "openmoji:1F452",
+      "category": "clothes"
+    },
+    {
+      "id": "sock",
+      "answer": "袜子",
+      "image": "openmoji:1F9E6",
+      "category": "clothes"
+    },
+    {
+      "id": "dog",
+      "answer": "狗",
+      "accept": [
+        "小狗"
+      ],
+      "image": "openmoji:1F415",
+      "category": "animal"
+    },
+    {
+      "id": "cat",
+      "answer": "猫",
+      "accept": [
+        "小猫"
+      ],
+      "image": "openmoji:1F408",
+      "category": "animal"
+    },
+    {
+      "id": "bird",
+      "answer": "鸟",
+      "accept": [
+        "小鸟"
+      ],
+      "image": "openmoji:1F426",
+      "category": "animal"
+    },
+    {
+      "id": "fish",
+      "answer": "鱼",
+      "image": "openmoji:1F41F",
+      "category": "animal"
+    },
+    {
+      "id": "horse",
+      "answer": "马",
+      "image": "openmoji:1F40E",
+      "category": "animal"
+    },
+    {
+      "id": "cow",
+      "answer": "牛",
+      "accept": [
+        "奶牛"
+      ],
+      "image": "openmoji:1F404",
+      "category": "animal"
+    },
+    {
+      "id": "sun",
+      "answer": "太阳",
+      "image": "openmoji:2600",
+      "category": "nature"
+    },
+    {
+      "id": "moon",
+      "answer": "月亮",
+      "image": "openmoji:1F319",
+      "category": "nature"
+    },
+    {
+      "id": "star",
+      "answer": "星星",
+      "image": "openmoji:2B50",
+      "category": "nature"
+    },
+    {
+      "id": "tree",
+      "answer": "树",
+      "image": "openmoji:1F333",
+      "category": "nature"
+    },
+    {
+      "id": "flower",
+      "answer": "花",
+      "image": "openmoji:1F337",
+      "category": "nature"
+    },
+    {
+      "id": "car",
+      "answer": "汽车",
+      "accept": [
+        "车",
+        "小汽车"
+      ],
+      "image": "openmoji:1F697",
+      "category": "travel"
+    },
+    {
+      "id": "bus",
+      "answer": "公共汽车",
+      "accept": [
+        "公交车",
+        "巴士",
+        "大巴"
+      ],
+      "image": "openmoji:1F68C",
+      "category": "travel"
+    },
+    {
+      "id": "bicycle",
+      "answer": "自行车",
+      "accept": [
+        "单车",
+        "脚踏车"
+      ],
+      "image": "openmoji:1F6B2",
+      "category": "travel"
+    },
+    {
+      "id": "train",
+      "answer": "火车",
+      "image": "openmoji:1F686",
+      "category": "travel"
+    },
+    {
+      "id": "plane",
+      "answer": "飞机",
+      "image": "openmoji:2708",
+      "category": "travel"
+    },
+    {
+      "id": "hand",
+      "answer": "手",
+      "image": "openmoji:1F91A",
+      "category": "body"
+    },
+    {
+      "id": "eye",
+      "answer": "眼睛",
+      "image": "openmoji:1F441",
+      "category": "body"
+    },
+    {
+      "id": "ear",
+      "answer": "耳朵",
+      "image": "openmoji:1F442",
+      "category": "body"
+    },
+    {
+      "id": "nose",
+      "answer": "鼻子",
+      "image": "openmoji:1F443",
+      "category": "body"
+    },
+    {
+      "id": "mouth",
+      "answer": "嘴",
+      "accept": [
+        "嘴巴"
+      ],
+      "image": "openmoji:1F444",
+      "category": "body"
+    },
+    {
+      "id": "foot",
+      "answer": "脚",
+      "image": "openmoji:1F9B6",
+      "category": "body"
+    }
+  ]
+}

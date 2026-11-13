@@ -1,0 +1,171 @@
+{
+  "$schema": "../../../../schema/pack.schema.json",
+  "format": 1,
+  "id": "pl-finish-the-sentence",
+  "version": "1.0.0",
+  "language": "pl",
+  "title": "Dokończ zdanie",
+  "description": "Codzienne zdania, w których brakuje słowa.",
+  "author": "Speakagain contributors",
+  "license": "CC BY-SA 4.0",
+  "exercises": [
+    "complete"
+  ],
+  "items": [
+    {
+      "id": "sleep-bed",
+      "answer": "łóżku",
+      "accept": [
+        "łóżko"
+      ],
+      "image": "openmoji:1F6CF",
+      "sentence": "Śpimy w ___."
+    },
+    {
+      "id": "sit-chair",
+      "answer": "krześle",
+      "accept": [
+        "krzesło"
+      ],
+      "image": "openmoji:1FA91",
+      "sentence": "Siadamy na ___."
+    },
+    {
+      "id": "open-key",
+      "answer": "kluczem",
+      "accept": [
+        "klucz"
+      ],
+      "image": "openmoji:1F511",
+      "sentence": "Otwieramy drzwi ___."
+    },
+    {
+      "id": "read-book",
+      "answer": "książkę",
+      "accept": [
+        "książka"
+      ],
+      "image": "openmoji:1F4D6",
+      "sentence": "Czytamy ___."
+    },
+    {
+      "id": "brush-toothbrush",
+      "answer": "szczoteczką",
+      "accept": [
+        "szczoteczka",
+        "szczoteczką do zębów"
+      ],
+      "image": "openmoji:1FAA5",
+      "sentence": "Myjemy zęby ___."
+    },
+    {
+      "id": "cow-milk",
+      "answer": "mleko",
+      "image": "openmoji:1F95B",
+      "sentence": "Krowa daje nam ___."
+    },
+    {
+      "id": "morning-coffee",
+      "answer": "kawy",
+      "accept": [
+        "kawa",
+        "herbaty"
+      ],
+      "image": "openmoji:2615",
+      "sentence": "Rano piję filiżankę ___."
+    },
+    {
+      "id": "sky-sun",
+      "answer": "słońce",
+      "image": "openmoji:2600",
+      "sentence": "Na niebie świeci ___."
+    },
+    {
+      "id": "night-moon",
+      "answer": "księżyc",
+      "accept": [
+        "gwiazdy"
+      ],
+      "image": "openmoji:1F319",
+      "sentence": "W nocy widać ___."
+    },
+    {
+      "id": "see-eyes",
+      "answer": "oczami",
+      "accept": [
+        "oczyma",
+        "oczy",
+        "oko"
+      ],
+      "image": "openmoji:1F441",
+      "sentence": "Widzimy ___."
+    },
+    {
+      "id": "hear-ears",
+      "answer": "uszami",
+      "accept": [
+        "uszy",
+        "ucho"
+      ],
+      "image": "openmoji:1F442",
+      "sentence": "Słyszymy ___."
+    },
+    {
+      "id": "smell-nose",
+      "answer": "nosem",
+      "accept": [
+        "nos"
+      ],
+      "image": "openmoji:1F443",
+      "sentence": "Wąchamy ___."
+    },
+    {
+      "id": "socks-shoes",
+      "answer": "buty",
+      "accept": [
+        "but"
+      ],
+      "image": "openmoji:1F45F",
+      "sentence": "Zakładam skarpetki i ___."
+    },
+    {
+      "id": "rain-umbrella",
+      "answer": "parasol",
+      "image": "openmoji:2602",
+      "sentence": "Kiedy pada deszcz, otwieramy ___."
+    },
+    {
+      "id": "fly-plane",
+      "answer": "samolot",
+      "accept": [
+        "ptak"
+      ],
+      "image": "openmoji:2708",
+      "sentence": "Po niebie leci ___."
+    },
+    {
+      "id": "swim-fish",
+      "answer": "ryba",
+      "image": "openmoji:1F41F",
+      "sentence": "W wodzie pływa ___."
+    },
+    {
+      "id": "sandwich-bread",
+      "answer": "chleba",
+      "accept": [
+        "chleb"
+      ],
+      "image": "openmoji:1F35E",
+      "sentence": "Kanapkę robimy z ___."
+    },
+    {
+      "id": "call-phone",
+      "answer": "telefon",
+      "accept": [
+        "komórkę"
+      ],
+      "image": "openmoji:1F4F1",
+      "sentence": "Żeby do kogoś zadzwonić, bierzemy ___."
+    }
+  ]
+}

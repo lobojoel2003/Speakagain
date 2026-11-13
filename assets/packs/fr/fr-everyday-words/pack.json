@@ -1,0 +1,388 @@
+{
+  "$schema": "../../../../schema/pack.schema.json",
+  "format": 1,
+  "id": "fr-everyday-words",
+  "version": "1.0.0",
+  "language": "fr",
+  "title": "Mots du quotidien",
+  "description": "Nourriture, maison, vêtements, animaux, nature, transports et le corps.",
+  "author": "Speakagain contributors",
+  "license": "CC BY-SA 4.0",
+  "exercises": [
+    "name",
+    "listen",
+    "read",
+    "repeat"
+  ],
+  "categories": {
+    "food": "Quelque chose à manger ou à boire",
+    "home": "Quelque chose de la maison",
+    "clothes": "Quelque chose qu'on porte",
+    "animal": "Un animal",
+    "nature": "Quelque chose qu'on voit dehors",
+    "travel": "Un moyen de transport",
+    "body": "Une partie du corps"
+  },
+  "items": [
+    {
+      "id": "apple",
+      "answer": "pomme",
+      "accept": [
+        "pommes"
+      ],
+      "image": "openmoji:1F34E",
+      "category": "food"
+    },
+    {
+      "id": "banana",
+      "answer": "banane",
+      "accept": [
+        "bananes"
+      ],
+      "image": "openmoji:1F34C",
+      "category": "food"
+    },
+    {
+      "id": "grapes",
+      "answer": "raisin",
+      "accept": [
+        "raisins"
+      ],
+      "image": "openmoji:1F347",
+      "category": "food"
+    },
+    {
+      "id": "carrot",
+      "answer": "carotte",
+      "accept": [
+        "carottes"
+      ],
+      "image": "openmoji:1F955",
+      "category": "food"
+    },
+    {
+      "id": "bread",
+      "answer": "pain",
+      "image": "openmoji:1F35E",
+      "category": "food"
+    },
+    {
+      "id": "cheese",
+      "answer": "fromage",
+      "image": "openmoji:1F9C0",
+      "category": "food"
+    },
+    {
+      "id": "egg",
+      "answer": "œuf",
+      "accept": [
+        "oeuf",
+        "œufs",
+        "oeufs"
+      ],
+      "image": "openmoji:1F95A",
+      "category": "food"
+    },
+    {
+      "id": "cake",
+      "answer": "gâteau",
+      "accept": [
+        "gateau"
+      ],
+      "image": "openmoji:1F370",
+      "category": "food"
+    },
+    {
+      "id": "water",
+      "answer": "eau",
+      "image": "openmoji:1F4A7",
+      "category": "food"
+    },
+    {
+      "id": "milk",
+      "answer": "lait",
+      "image": "openmoji:1F95B",
+      "category": "food"
+    },
+    {
+      "id": "tea",
+      "answer": "thé",
+      "image": "openmoji:1F375",
+      "category": "food"
+    },
+    {
+      "id": "coffee",
+      "answer": "café",
+      "image": "openmoji:2615",
+      "category": "food"
+    },
+    {
+      "id": "house",
+      "answer": "maison",
+      "image": "openmoji:1F3E0",
+      "category": "home"
+    },
+    {
+      "id": "bed",
+      "answer": "lit",
+      "image": "openmoji:1F6CF",
+      "category": "home"
+    },
+    {
+      "id": "chair",
+      "answer": "chaise",
+      "image": "openmoji:1FA91",
+      "category": "home"
+    },
+    {
+      "id": "door",
+      "answer": "porte",
+      "image": "openmoji:1F6AA",
+      "category": "home"
+    },
+    {
+      "id": "key",
+      "answer": "clé",
+      "accept": [
+        "clef",
+        "clés"
+      ],
+      "image": "openmoji:1F511",
+      "category": "home"
+    },
+    {
+      "id": "clock",
+      "answer": "horloge",
+      "accept": [
+        "pendule",
+        "réveil"
+      ],
+      "image": "openmoji:1F570",
+      "category": "home"
+    },
+    {
+      "id": "phone",
+      "answer": "téléphone",
+      "accept": [
+        "portable"
+      ],
+      "image": "openmoji:1F4F1",
+      "category": "home"
+    },
+    {
+      "id": "book",
+      "answer": "livre",
+      "image": "openmoji:1F4D6",
+      "category": "home"
+    },
+    {
+      "id": "glasses",
+      "answer": "lunettes",
+      "image": "openmoji:1F453",
+      "category": "home"
+    },
+    {
+      "id": "toothbrush",
+      "answer": "brosse à dents",
+      "image": "openmoji:1FAA5",
+      "category": "home"
+    },
+    {
+      "id": "umbrella",
+      "answer": "parapluie",
+      "image": "openmoji:2602",
+      "category": "home"
+    },
+    {
+      "id": "shoe",
+      "answer": "chaussure",
+      "accept": [
+        "chaussures",
+        "basket",
+        "baskets"
+      ],
+      "image": "openmoji:1F45F",
+      "category": "clothes"
+    },
+    {
+      "id": "shirt",
+      "answer": "t-shirt",
+      "accept": [
+        "tee-shirt",
+        "chemise",
+        "maillot"
+      ],
+      "image": "openmoji:1F455",
+      "category": "clothes"
+    },
+    {
+      "id": "hat",
+      "answer": "chapeau",
+      "image": "openmoji:1F452",
+      "category": "clothes"
+    },
+    {
+      "id": "sock",
+      "answer": "chaussette",
+      "accept": [
+        "chaussettes"
+      ],
+      "image": "openmoji:1F9E6",
+      "category": "clothes"
+    },
+    {
+      "id": "dog",
+      "answer": "chien",
+      "image": "openmoji:1F415",
+      "category": "animal"
+    },
+    {
+      "id": "cat",
+      "answer": "chat",
+      "image": "openmoji:1F408",
+      "category": "animal"
+    },
+    {
+      "id": "bird",
+      "answer": "oiseau",
+      "image": "openmoji:1F426",
+      "category": "animal"
+    },
+    {
+      "id": "fish",
+      "answer": "poisson",
+      "image": "openmoji:1F41F",
+      "category": "animal"
+    },
+    {
+      "id": "horse",
+      "answer": "cheval",
+      "image": "openmoji:1F40E",
+      "category": "animal"
+    },
+    {
+      "id": "cow",
+      "answer": "vache",
+      "image": "openmoji:1F404",
+      "category": "animal"
+    },
+    {
+      "id": "sun",
+      "answer": "soleil",
+      "image": "openmoji:2600",
+      "category": "nature"
+    },
+    {
+      "id": "moon",
+      "answer": "lune",
+      "image": "openmoji:1F319",
+      "category": "nature"
+    },
+    {
+      "id": "star",
+      "answer": "étoile",
+      "accept": [
+        "étoiles"
+      ],
+      "image": "openmoji:2B50",
+      "category": "nature"
+    },
+    {
+      "id": "tree",
+      "answer": "arbre",
+      "image": "openmoji:1F333",
+      "category": "nature"
+    },
+    {
+      "id": "flower",
+      "answer": "fleur",
+      "accept": [
+        "fleurs"
+      ],
+      "image": "openmoji:1F337",
+      "category": "nature"
+    },
+    {
+      "id": "car",
+      "answer": "voiture",
+      "image": "openmoji:1F697",
+      "category": "travel"
+    },
+    {
+      "id": "bus",
+      "answer": "bus",
+      "accept": [
+        "autobus"
+      ],
+      "image": "openmoji:1F68C",
+      "category": "travel"
+    },
+    {
+      "id": "bicycle",
+      "answer": "vélo",
+      "accept": [
+        "bicyclette"
+      ],
+      "image": "openmoji:1F6B2",
+      "category": "travel"
+    },
+    {
+      "id": "train",
+      "answer": "train",
+      "image": "openmoji:1F686",
+      "category": "travel"
+    },
+    {
+      "id": "plane",
+      "answer": "avion",
+      "image": "openmoji:2708",
+      "category": "travel"
+    },
+    {
+      "id": "hand",
+      "answer": "main",
+      "image": "openmoji:1F91A",
+      "category": "body"
+    },
+    {
+      "id": "eye",
+      "answer": "œil",
+      "accept": [
+        "oeil",
+        "yeux"
+      ],
+      "image": "openmoji:1F441",
+      "category": "body"
+    },
+    {
+      "id": "ear",
+      "answer": "oreille",
+      "accept": [
+        "oreilles"
+      ],
+      "image": "openmoji:1F442",
+      "category": "body"
+    },
+    {
+      "id": "nose",
+      "answer": "nez",
+      "image": "openmoji:1F443",
+      "category": "body"
+    },
+    {
+      "id": "mouth",
+      "answer": "bouche",
+      "image": "openmoji:1F444",
+      "category": "body"
+    },
+    {
+      "id": "foot",
+      "answer": "pied",
+      "accept": [
+        "pieds"
+      ],
+      "image": "openmoji:1F9B6",
+      "category": "body"
+    }
+  ]
+}

@@ -1,0 +1,403 @@
+{
+  "$schema": "../../../../schema/pack.schema.json",
+  "format": 1,
+  "id": "hi-everyday-words",
+  "version": "1.0.0",
+  "language": "hi",
+  "title": "रोज़ के शब्द",
+  "description": "खाना, घर, कपड़े, जानवर, प्रकृति, सफ़र और शरीर।",
+  "author": "Speakagain contributors",
+  "license": "CC BY-SA 4.0",
+  "exercises": [
+    "name",
+    "listen",
+    "read",
+    "repeat"
+  ],
+  "categories": {
+    "food": "खाने या पीने की चीज़",
+    "home": "घर की चीज़",
+    "clothes": "पहनने की चीज़",
+    "animal": "एक जानवर",
+    "nature": "बाहर दिखने वाली चीज़",
+    "travel": "आने-जाने का साधन",
+    "body": "शरीर का एक अंग"
+  },
+  "items": [
+    {
+      "id": "apple",
+      "answer": "सेब",
+      "image": "openmoji:1F34E",
+      "category": "food"
+    },
+    {
+      "id": "banana",
+      "answer": "केला",
+      "image": "openmoji:1F34C",
+      "category": "food"
+    },
+    {
+      "id": "grapes",
+      "answer": "अंगूर",
+      "image": "openmoji:1F347",
+      "category": "food"
+    },
+    {
+      "id": "carrot",
+      "answer": "गाजर",
+      "image": "openmoji:1F955",
+      "category": "food"
+    },
+    {
+      "id": "bread",
+      "answer": "ब्रेड",
+      "accept": [
+        "डबल रोटी",
+        "पाव"
+      ],
+      "image": "openmoji:1F35E",
+      "category": "food"
+    },
+    {
+      "id": "cheese",
+      "answer": "पनीर",
+      "accept": [
+        "चीज़"
+      ],
+      "image": "openmoji:1F9C0",
+      "category": "food"
+    },
+    {
+      "id": "egg",
+      "answer": "अंडा",
+      "image": "openmoji:1F95A",
+      "category": "food"
+    },
+    {
+      "id": "cake",
+      "answer": "केक",
+      "image": "openmoji:1F370",
+      "category": "food"
+    },
+    {
+      "id": "water",
+      "answer": "पानी",
+      "accept": [
+        "जल"
+      ],
+      "image": "openmoji:1F4A7",
+      "category": "food"
+    },
+    {
+      "id": "milk",
+      "answer": "दूध",
+      "image": "openmoji:1F95B",
+      "category": "food"
+    },
+    {
+      "id": "tea",
+      "answer": "चाय",
+      "image": "openmoji:1F375",
+      "category": "food"
+    },
+    {
+      "id": "coffee",
+      "answer": "कॉफ़ी",
+      "image": "openmoji:2615",
+      "category": "food"
+    },
+    {
+      "id": "house",
+      "answer": "घर",
+      "accept": [
+        "मकान"
+      ],
+      "image": "openmoji:1F3E0",
+      "category": "home"
+    },
+    {
+      "id": "bed",
+      "answer": "बिस्तर",
+      "accept": [
+        "पलंग"
+      ],
+      "image": "openmoji:1F6CF",
+      "category": "home"
+    },
+    {
+      "id": "chair",
+      "answer": "कुर्सी",
+      "image": "openmoji:1FA91",
+      "category": "home"
+    },
+    {
+      "id": "door",
+      "answer": "दरवाज़ा",
+      "accept": [
+        "द्वार"
+      ],
+      "image": "openmoji:1F6AA",
+      "category": "home"
+    },
+    {
+      "id": "key",
+      "answer": "चाबी",
+      "accept": [
+        "चाभी",
+        "कुंजी"
+      ],
+      "image": "openmoji:1F511",
+      "category": "home"
+    },
+    {
+      "id": "clock",
+      "answer": "घड़ी",
+      "image": "openmoji:1F570",
+      "category": "home"
+    },
+    {
+      "id": "phone",
+      "answer": "फ़ोन",
+      "accept": [
+        "मोबाइल",
+        "टेलीफ़ोन"
+      ],
+      "image": "openmoji:1F4F1",
+      "category": "home"
+    },
+    {
+      "id": "book",
+      "answer": "किताब",
+      "accept": [
+        "पुस्तक"
+      ],
+      "image": "openmoji:1F4D6",
+      "category": "home"
+    },
+    {
+      "id": "glasses",
+      "answer": "चश्मा",
+      "image": "openmoji:1F453",
+      "category": "home"
+    },
+    {
+      "id": "toothbrush",
+      "answer": "टूथब्रश",
+      "accept": [
+        "ब्रश"
+      ],
+      "image": "openmoji:1FAA5",
+      "category": "home"
+    },
+    {
+      "id": "umbrella",
+      "answer": "छाता",
+      "accept": [
+        "छतरी"
+      ],
+      "image": "openmoji:2602",
+      "category": "home"
+    },
+    {
+      "id": "shoe",
+      "answer": "जूता",
+      "accept": [
+        "जूते"
+      ],
+      "image": "openmoji:1F45F",
+      "category": "clothes"
+    },
+    {
+      "id": "shirt",
+      "answer": "कमीज़",
+      "accept": [
+        "शर्ट",
+        "टी-शर्ट"
+      ],
+      "image": "openmoji:1F455",
+      "category": "clothes"
+    },
+    {
+      "id": "hat",
+      "answer": "टोपी",
+      "image": "openmoji:1F452",
+      "category": "clothes"
+    },
+    {
+      "id": "sock",
+      "answer": "मोज़ा",
+      "accept": [
+        "मोज़े"
+      ],
+      "image": "openmoji:1F9E6",
+      "category": "clothes"
+    },
+    {
+      "id": "dog",
+      "answer": "कुत्ता",
+      "image": "openmoji:1F415",
+      "category": "animal"
+    },
+    {
+      "id": "cat",
+      "answer": "बिल्ली",
+      "image": "openmoji:1F408",
+      "category": "animal"
+    },
+    {
+      "id": "bird",
+      "answer": "चिड़िया",
+      "accept": [
+        "पक्षी",
+        "पंछी"
+      ],
+      "image": "openmoji:1F426",
+      "category": "animal"
+    },
+    {
+      "id": "fish",
+      "answer": "मछली",
+      "image": "openmoji:1F41F",
+      "category": "animal"
+    },
+    {
+      "id": "horse",
+      "answer": "घोड़ा",
+      "image": "openmoji:1F40E",
+      "category": "animal"
+    },
+    {
+      "id": "cow",
+      "answer": "गाय",
+      "image": "openmoji:1F404",
+      "category": "animal"
+    },
+    {
+      "id": "sun",
+      "answer": "सूरज",
+      "accept": [
+        "सूर्य"
+      ],
+      "image": "openmoji:2600",
+      "category": "nature"
+    },
+    {
+      "id": "moon",
+      "answer": "चाँद",
+      "accept": [
+        "चंद्रमा"
+      ],
+      "image": "openmoji:1F319",
+      "category": "nature"
+    },
+    {
+      "id": "star",
+      "answer": "तारा",
+      "accept": [
+        "सितारा",
+        "तारे"
+      ],
+      "image": "openmoji:2B50",
+      "category": "nature"
+    },
+    {
+      "id": "tree",
+      "answer": "पेड़",
+      "accept": [
+        "वृक्ष"
+      ],
+      "image": "openmoji:1F333",
+      "category": "nature"
+    },
+    {
+      "id": "flower",
+      "answer": "फूल",
+      "image": "openmoji:1F337",
+      "category": "nature"
+    },
+    {
+      "id": "car",
+      "answer": "गाड़ी",
+      "accept": [
+        "कार",
+        "मोटर"
+      ],
+      "image": "openmoji:1F697",
+      "category": "travel"
+    },
+    {
+      "id": "bus",
+      "answer": "बस",
+      "image": "openmoji:1F68C",
+      "category": "travel"
+    },
+    {
+      "id": "bicycle",
+      "answer": "साइकिल",
+      "image": "openmoji:1F6B2",
+      "category": "travel"
+    },
+    {
+      "id": "train",
+      "answer": "रेलगाड़ी",
+      "accept": [
+        "ट्रेन",
+        "रेल"
+      ],
+      "image": "openmoji:1F686",
+      "category": "travel"
+    },
+    {
+      "id": "plane",
+      "answer": "हवाई जहाज़",
+      "accept": [
+        "जहाज़",
+        "विमान"
+      ],
+      "image": "openmoji:2708",
+      "category": "travel"
+    },
+    {
+      "id": "hand",
+      "answer": "हाथ",
+      "image": "openmoji:1F91A",
+      "category": "body"
+    },
+    {
+      "id": "eye",
+      "answer": "आँख",
+      "accept": [
+        "आँखें"
+      ],
+      "image": "openmoji:1F441",
+      "category": "body"
+    },
+    {
+      "id": "ear",
+      "answer": "कान",
+      "image": "openmoji:1F442",
+      "category": "body"
+    },
+    {
+      "id": "nose",
+      "answer": "नाक",
+      "image": "openmoji:1F443",
+      "category": "body"
+    },
+    {
+      "id": "mouth",
+      "answer": "मुँह",
+      "image": "openmoji:1F444",
+      "category": "body"
+    },
+    {
+      "id": "foot",
+      "answer": "पैर",
+      "accept": [
+        "पाँव"
+      ],
+      "image": "openmoji:1F9B6",
+      "category": "body"
+    }
+  ]
+}

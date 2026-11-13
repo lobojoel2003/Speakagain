@@ -25,14 +25,7 @@ const List<int> reviewIntervalsDays = [0, 1, 2, 4, 7, 14];
 
 @immutable
 class ItemProgress {
-  const ItemProgress({
-    this.box = 0,
-    this.attempts = 0,
-    this.independent = 0,
-    this.helped = 0,
-    this.lastSeen,
-    this.due,
-  });
+  const ItemProgress({this.box = 0, this.attempts = 0, this.independent = 0, this.helped = 0, this.lastSeen, this.due});
 
   final int box;
   final int attempts;
@@ -66,13 +59,13 @@ class ItemProgress {
   }
 
   Map<String, Object?> toJson() => {
-        'b': box,
-        'a': attempts,
-        'i': independent,
-        'h': helped,
-        if (lastSeen != null) 's': lastSeen!.millisecondsSinceEpoch,
-        if (due != null) 'd': due!.millisecondsSinceEpoch,
-      };
+    'b': box,
+    'a': attempts,
+    'i': independent,
+    'h': helped,
+    if (lastSeen != null) 's': lastSeen!.millisecondsSinceEpoch,
+    if (due != null) 'd': due!.millisecondsSinceEpoch,
+  };
 
   factory ItemProgress.fromJson(Map<String, Object?> json) {
     DateTime? time(Object? v) => v is int ? DateTime.fromMillisecondsSinceEpoch(v) : null;
@@ -100,20 +93,20 @@ class DayLog {
   final int helped;
 
   DayLog add(Outcome outcome) => DayLog(
-        date: date,
-        practised: practised + 1,
-        independent: independent + (outcome == Outcome.independent ? 1 : 0),
-        helped: helped + (outcome == Outcome.withHint || outcome == Outcome.withModel ? 1 : 0),
-      );
+    date: date,
+    practised: practised + 1,
+    independent: independent + (outcome == Outcome.independent ? 1 : 0),
+    helped: helped + (outcome == Outcome.withHint || outcome == Outcome.withModel ? 1 : 0),
+  );
 
   Map<String, Object?> toJson() => {'date': date, 'p': practised, 'i': independent, 'h': helped};
 
   factory DayLog.fromJson(Map<String, Object?> json) => DayLog(
-        date: json['date'] as String? ?? '',
-        practised: json['p'] as int? ?? 0,
-        independent: json['i'] as int? ?? 0,
-        helped: json['h'] as int? ?? 0,
-      );
+    date: json['date'] as String? ?? '',
+    practised: json['p'] as int? ?? 0,
+    independent: json['i'] as int? ?? 0,
+    helped: json['h'] as int? ?? 0,
+  );
 }
 
 String dayKey(DateTime time) =>

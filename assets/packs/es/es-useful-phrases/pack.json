@@ -1,0 +1,131 @@
+{
+  "$schema": "../../../../schema/pack.schema.json",
+  "format": 1,
+  "id": "es-useful-phrases",
+  "version": "1.0.0",
+  "language": "es",
+  "title": "Frases útiles",
+  "description": "Frases cortas para conversar cada día.",
+  "author": "Speakagain contributors",
+  "license": "CC BY-SA 4.0",
+  "exercises": [
+    "repeat",
+    "read"
+  ],
+  "items": [
+    {
+      "id": "hello",
+      "answer": "Hola",
+      "image": "openmoji:1F44B"
+    },
+    {
+      "id": "good-night",
+      "answer": "Buenas noches",
+      "image": "openmoji:1F319"
+    },
+    {
+      "id": "how-are-you",
+      "answer": "¿Cómo estás?",
+      "accept": [
+        "cómo está",
+        "qué tal"
+      ],
+      "image": "openmoji:1F914"
+    },
+    {
+      "id": "im-fine",
+      "answer": "Estoy bien",
+      "accept": [
+        "bien",
+        "muy bien"
+      ],
+      "image": "openmoji:1F642"
+    },
+    {
+      "id": "thank-you",
+      "answer": "Gracias",
+      "accept": [
+        "muchas gracias"
+      ],
+      "image": "openmoji:1F64F"
+    },
+    {
+      "id": "please",
+      "answer": "Por favor",
+      "image": "openmoji:1F932"
+    },
+    {
+      "id": "yes",
+      "answer": "Sí",
+      "image": "openmoji:1F44D"
+    },
+    {
+      "id": "no",
+      "answer": "No",
+      "image": "openmoji:1F645"
+    },
+    {
+      "id": "need-help",
+      "answer": "Necesito ayuda",
+      "accept": [
+        "ayuda",
+        "ayúdame"
+      ],
+      "image": "openmoji:1F198"
+    },
+    {
+      "id": "it-hurts",
+      "answer": "Me duele",
+      "accept": [
+        "duele"
+      ],
+      "image": "openmoji:1F915"
+    },
+    {
+      "id": "tired",
+      "answer": "Estoy cansado",
+      "accept": [
+        "estoy cansada",
+        "cansado",
+        "cansada"
+      ],
+      "image": "openmoji:1F62B"
+    },
+    {
+      "id": "thirsty",
+      "answer": "Tengo sed",
+      "image": "openmoji:1F964"
+    },
+    {
+      "id": "hungry",
+      "answer": "Tengo hambre",
+      "image": "openmoji:1F60B"
+    },
+    {
+      "id": "toilet",
+      "answer": "Necesito ir al baño",
+      "accept": [
+        "quiero ir al baño",
+        "al baño"
+      ],
+      "image": "openmoji:1F6BD"
+    },
+    {
+      "id": "love-you",
+      "answer": "Te quiero",
+      "accept": [
+        "te amo"
+      ],
+      "image": "openmoji:2764"
+    },
+    {
+      "id": "goodbye",
+      "answer": "Adiós",
+      "accept": [
+        "chao",
+        "hasta luego"
+      ],
+      "image": "openmoji:1F6AA"
+    }
+  ]
+}

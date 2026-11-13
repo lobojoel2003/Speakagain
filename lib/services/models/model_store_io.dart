@@ -17,8 +17,8 @@ ModelStore createModelStore(ModelCatalog catalog) => FileModelStore(catalog);
 /// so the check runs once per download instead of on every start.
 class FileModelStore implements ModelStore {
   FileModelStore(this.catalog, {Directory? root, http.Client Function()? client})
-      : _root = root,
-        _client = client ?? http.Client.new;
+    : _root = root, // ignore: prefer_initializing_formals
+      _client = client ?? http.Client.new;
 
   @override
   final ModelCatalog catalog;
@@ -42,10 +42,10 @@ class FileModelStore implements ModelStore {
   }
 
   Iterable<Downloadable> get _all => [
-        ...catalog.recognizers,
-        ...catalog.voices,
-        if (catalog.voiceData != null) catalog.voiceData!,
-      ];
+    ...catalog.recognizers,
+    ...catalog.voices,
+    if (catalog.voiceData != null) catalog.voiceData!,
+  ];
 
   Future<bool> _checkMarkers(Downloadable item) async {
     for (final file in item.files) {

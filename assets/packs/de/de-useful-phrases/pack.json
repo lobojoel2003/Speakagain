@@ -1,0 +1,143 @@
+{
+  "$schema": "../../../../schema/pack.schema.json",
+  "format": 1,
+  "id": "de-useful-phrases",
+  "version": "1.0.0",
+  "language": "de",
+  "title": "Nützliche Sätze",
+  "description": "Kurze Sätze für Gespräche im Alltag.",
+  "author": "Speakagain contributors",
+  "license": "CC BY-SA 4.0",
+  "exercises": [
+    "repeat",
+    "read"
+  ],
+  "items": [
+    {
+      "id": "hello",
+      "answer": "Hallo",
+      "accept": [
+        "guten Tag",
+        "servus",
+        "moin"
+      ],
+      "image": "openmoji:1F44B"
+    },
+    {
+      "id": "good-night",
+      "answer": "Gute Nacht",
+      "image": "openmoji:1F319"
+    },
+    {
+      "id": "how-are-you",
+      "answer": "Wie geht es dir?",
+      "accept": [
+        "wie geht's",
+        "wie geht es Ihnen"
+      ],
+      "image": "openmoji:1F914"
+    },
+    {
+      "id": "im-fine",
+      "answer": "Mir geht es gut",
+      "accept": [
+        "mir geht's gut",
+        "gut danke",
+        "gut"
+      ],
+      "image": "openmoji:1F642"
+    },
+    {
+      "id": "thank-you",
+      "answer": "Danke",
+      "accept": [
+        "danke schön",
+        "vielen Dank"
+      ],
+      "image": "openmoji:1F64F"
+    },
+    {
+      "id": "please",
+      "answer": "Bitte",
+      "image": "openmoji:1F932"
+    },
+    {
+      "id": "yes",
+      "answer": "Ja",
+      "image": "openmoji:1F44D"
+    },
+    {
+      "id": "no",
+      "answer": "Nein",
+      "image": "openmoji:1F645"
+    },
+    {
+      "id": "need-help",
+      "answer": "Ich brauche Hilfe",
+      "accept": [
+        "Hilfe"
+      ],
+      "image": "openmoji:1F198"
+    },
+    {
+      "id": "it-hurts",
+      "answer": "Es tut weh",
+      "accept": [
+        "das tut weh",
+        "tut weh"
+      ],
+      "image": "openmoji:1F915"
+    },
+    {
+      "id": "tired",
+      "answer": "Ich bin müde",
+      "accept": [
+        "müde"
+      ],
+      "image": "openmoji:1F62B"
+    },
+    {
+      "id": "thirsty",
+      "answer": "Ich habe Durst",
+      "accept": [
+        "Durst"
+      ],
+      "image": "openmoji:1F964"
+    },
+    {
+      "id": "hungry",
+      "answer": "Ich habe Hunger",
+      "accept": [
+        "Hunger"
+      ],
+      "image": "openmoji:1F60B"
+    },
+    {
+      "id": "toilet",
+      "answer": "Ich muss auf die Toilette",
+      "accept": [
+        "ich muss aufs Klo",
+        "Toilette"
+      ],
+      "image": "openmoji:1F6BD"
+    },
+    {
+      "id": "love-you",
+      "answer": "Ich liebe dich",
+      "accept": [
+        "hab dich lieb"
+      ],
+      "image": "openmoji:2764"
+    },
+    {
+      "id": "goodbye",
+      "answer": "Tschüss",
+      "accept": [
+        "tschüs",
+        "auf Wiedersehen",
+        "ciao"
+      ],
+      "image": "openmoji:1F6AA"
+    }
+  ]
+}

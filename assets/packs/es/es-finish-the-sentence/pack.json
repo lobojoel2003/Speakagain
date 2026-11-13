@@ -1,0 +1,152 @@
+{
+  "$schema": "../../../../schema/pack.schema.json",
+  "format": 1,
+  "id": "es-finish-the-sentence",
+  "version": "1.0.0",
+  "language": "es",
+  "title": "Completa la frase",
+  "description": "Frases cotidianas a las que les falta una palabra.",
+  "author": "Speakagain contributors",
+  "license": "CC BY-SA 4.0",
+  "exercises": [
+    "complete"
+  ],
+  "items": [
+    {
+      "id": "sleep-bed",
+      "answer": "cama",
+      "image": "openmoji:1F6CF",
+      "sentence": "Dormimos en la ___."
+    },
+    {
+      "id": "sit-chair",
+      "answer": "silla",
+      "image": "openmoji:1FA91",
+      "sentence": "Nos sentamos en una ___."
+    },
+    {
+      "id": "open-key",
+      "answer": "llave",
+      "image": "openmoji:1F511",
+      "sentence": "Abrimos la puerta con la ___."
+    },
+    {
+      "id": "read-book",
+      "answer": "libro",
+      "image": "openmoji:1F4D6",
+      "sentence": "Leemos un ___."
+    },
+    {
+      "id": "brush-toothbrush",
+      "answer": "cepillo de dientes",
+      "accept": [
+        "cepillo"
+      ],
+      "image": "openmoji:1FAA5",
+      "sentence": "Nos lavamos los dientes con el ___."
+    },
+    {
+      "id": "cow-milk",
+      "answer": "leche",
+      "image": "openmoji:1F95B",
+      "sentence": "La vaca nos da ___."
+    },
+    {
+      "id": "morning-coffee",
+      "answer": "café",
+      "accept": [
+        "té"
+      ],
+      "image": "openmoji:2615",
+      "sentence": "Por la mañana tomo una taza de ___."
+    },
+    {
+      "id": "sky-sun",
+      "answer": "sol",
+      "image": "openmoji:2600",
+      "sentence": "El ___ brilla en el cielo."
+    },
+    {
+      "id": "night-moon",
+      "answer": "luna",
+      "accept": [
+        "estrellas"
+      ],
+      "image": "openmoji:1F319",
+      "sentence": "Por la noche vemos la ___."
+    },
+    {
+      "id": "see-eyes",
+      "answer": "ojos",
+      "accept": [
+        "ojo"
+      ],
+      "image": "openmoji:1F441",
+      "sentence": "Vemos con los ___."
+    },
+    {
+      "id": "hear-ears",
+      "answer": "oídos",
+      "accept": [
+        "orejas",
+        "oído",
+        "oreja"
+      ],
+      "image": "openmoji:1F442",
+      "sentence": "Oímos con los ___."
+    },
+    {
+      "id": "smell-nose",
+      "answer": "nariz",
+      "image": "openmoji:1F443",
+      "sentence": "Olemos con la ___."
+    },
+    {
+      "id": "socks-shoes",
+      "answer": "zapatos",
+      "accept": [
+        "zapato",
+        "zapatillas"
+      ],
+      "image": "openmoji:1F45F",
+      "sentence": "Me pongo los calcetines y los ___."
+    },
+    {
+      "id": "rain-umbrella",
+      "answer": "paraguas",
+      "image": "openmoji:2602",
+      "sentence": "Cuando llueve, abrimos el ___."
+    },
+    {
+      "id": "fly-plane",
+      "answer": "avión",
+      "accept": [
+        "pájaro"
+      ],
+      "image": "openmoji:2708",
+      "sentence": "El ___ vuela por el cielo."
+    },
+    {
+      "id": "swim-fish",
+      "answer": "pez",
+      "image": "openmoji:1F41F",
+      "sentence": "El ___ nada en el agua."
+    },
+    {
+      "id": "sandwich-bread",
+      "answer": "pan",
+      "image": "openmoji:1F35E",
+      "sentence": "Hacemos un sándwich con ___."
+    },
+    {
+      "id": "call-phone",
+      "answer": "teléfono",
+      "accept": [
+        "móvil",
+        "celular"
+      ],
+      "image": "openmoji:1F4F1",
+      "sentence": "Para llamar a alguien, usamos el ___."
+    }
+  ]
+}

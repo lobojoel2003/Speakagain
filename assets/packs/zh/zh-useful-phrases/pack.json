@@ -1,0 +1,154 @@
+{
+  "$schema": "../../../../schema/pack.schema.json",
+  "format": 1,
+  "id": "zh-useful-phrases",
+  "version": "1.0.0",
+  "language": "zh",
+  "title": "常用短语",
+  "description": "日常交流用的短句。",
+  "author": "Speakagain contributors",
+  "license": "CC BY-SA 4.0",
+  "exercises": [
+    "repeat",
+    "read"
+  ],
+  "items": [
+    {
+      "id": "hello",
+      "answer": "你好",
+      "accept": [
+        "您好"
+      ],
+      "image": "openmoji:1F44B"
+    },
+    {
+      "id": "good-night",
+      "answer": "晚安",
+      "image": "openmoji:1F319"
+    },
+    {
+      "id": "how-are-you",
+      "answer": "你好吗？",
+      "accept": [
+        "你怎么样",
+        "最近好吗"
+      ],
+      "image": "openmoji:1F914"
+    },
+    {
+      "id": "im-fine",
+      "answer": "我很好",
+      "accept": [
+        "很好",
+        "还好"
+      ],
+      "image": "openmoji:1F642"
+    },
+    {
+      "id": "thank-you",
+      "answer": "谢谢",
+      "accept": [
+        "谢谢你",
+        "多谢"
+      ],
+      "image": "openmoji:1F64F"
+    },
+    {
+      "id": "please",
+      "answer": "请",
+      "accept": [
+        "麻烦你"
+      ],
+      "image": "openmoji:1F932"
+    },
+    {
+      "id": "yes",
+      "answer": "是",
+      "accept": [
+        "是的",
+        "对",
+        "好"
+      ],
+      "image": "openmoji:1F44D"
+    },
+    {
+      "id": "no",
+      "answer": "不",
+      "accept": [
+        "不是",
+        "不要"
+      ],
+      "image": "openmoji:1F645"
+    },
+    {
+      "id": "need-help",
+      "answer": "我需要帮助",
+      "accept": [
+        "帮帮我",
+        "帮忙",
+        "救命"
+      ],
+      "image": "openmoji:1F198"
+    },
+    {
+      "id": "it-hurts",
+      "answer": "好疼",
+      "accept": [
+        "我疼",
+        "很疼",
+        "疼",
+        "好痛",
+        "痛"
+      ],
+      "image": "openmoji:1F915"
+    },
+    {
+      "id": "tired",
+      "answer": "我累了",
+      "accept": [
+        "我很累",
+        "累了"
+      ],
+      "image": "openmoji:1F62B"
+    },
+    {
+      "id": "thirsty",
+      "answer": "我渴了",
+      "accept": [
+        "我口渴",
+        "渴了"
+      ],
+      "image": "openmoji:1F964"
+    },
+    {
+      "id": "hungry",
+      "answer": "我饿了",
+      "accept": [
+        "饿了"
+      ],
+      "image": "openmoji:1F60B"
+    },
+    {
+      "id": "toilet",
+      "answer": "我要上厕所",
+      "accept": [
+        "上厕所",
+        "厕所"
+      ],
+      "image": "openmoji:1F6BD"
+    },
+    {
+      "id": "love-you",
+      "answer": "我爱你",
+      "image": "openmoji:2764"
+    },
+    {
+      "id": "goodbye",
+      "answer": "再见",
+      "accept": [
+        "拜拜"
+      ],
+      "image": "openmoji:1F6AA"
+    }
+  ]
+}

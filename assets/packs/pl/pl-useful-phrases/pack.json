@@ -1,0 +1,141 @@
+{
+  "$schema": "../../../../schema/pack.schema.json",
+  "format": 1,
+  "id": "pl-useful-phrases",
+  "version": "1.0.0",
+  "language": "pl",
+  "title": "Przydatne zwroty",
+  "description": "Krótkie zwroty do codziennej rozmowy.",
+  "author": "Speakagain contributors",
+  "license": "CC BY-SA 4.0",
+  "exercises": [
+    "repeat",
+    "read"
+  ],
+  "items": [
+    {
+      "id": "hello",
+      "answer": "Cześć",
+      "accept": [
+        "dzień dobry"
+      ],
+      "image": "openmoji:1F44B"
+    },
+    {
+      "id": "good-night",
+      "answer": "Dobranoc",
+      "image": "openmoji:1F319"
+    },
+    {
+      "id": "how-are-you",
+      "answer": "Jak się masz?",
+      "accept": [
+        "jak leci",
+        "co słychać"
+      ],
+      "image": "openmoji:1F914"
+    },
+    {
+      "id": "im-fine",
+      "answer": "Dobrze się czuję",
+      "accept": [
+        "dobrze",
+        "w porządku",
+        "wszystko dobrze"
+      ],
+      "image": "openmoji:1F642"
+    },
+    {
+      "id": "thank-you",
+      "answer": "Dziękuję",
+      "accept": [
+        "dzięki"
+      ],
+      "image": "openmoji:1F64F"
+    },
+    {
+      "id": "please",
+      "answer": "Proszę",
+      "image": "openmoji:1F932"
+    },
+    {
+      "id": "yes",
+      "answer": "Tak",
+      "image": "openmoji:1F44D"
+    },
+    {
+      "id": "no",
+      "answer": "Nie",
+      "image": "openmoji:1F645"
+    },
+    {
+      "id": "need-help",
+      "answer": "Potrzebuję pomocy",
+      "accept": [
+        "pomocy",
+        "pomóż mi"
+      ],
+      "image": "openmoji:1F198"
+    },
+    {
+      "id": "it-hurts",
+      "answer": "Boli mnie",
+      "accept": [
+        "boli"
+      ],
+      "image": "openmoji:1F915"
+    },
+    {
+      "id": "tired",
+      "answer": "Jestem zmęczony",
+      "accept": [
+        "jestem zmęczona",
+        "zmęczony",
+        "zmęczona"
+      ],
+      "image": "openmoji:1F62B"
+    },
+    {
+      "id": "thirsty",
+      "answer": "Chce mi się pić",
+      "accept": [
+        "pić"
+      ],
+      "image": "openmoji:1F964"
+    },
+    {
+      "id": "hungry",
+      "answer": "Jestem głodny",
+      "accept": [
+        "jestem głodna",
+        "chce mi się jeść",
+        "głodny",
+        "głodna"
+      ],
+      "image": "openmoji:1F60B"
+    },
+    {
+      "id": "toilet",
+      "answer": "Muszę do toalety",
+      "accept": [
+        "do toalety",
+        "toaleta"
+      ],
+      "image": "openmoji:1F6BD"
+    },
+    {
+      "id": "love-you",
+      "answer": "Kocham cię",
+      "image": "openmoji:2764"
+    },
+    {
+      "id": "goodbye",
+      "answer": "Do widzenia",
+      "accept": [
+        "pa",
+        "cześć"
+      ],
+      "image": "openmoji:1F6AA"
+    }
+  ]
+}

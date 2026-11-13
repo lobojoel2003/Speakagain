@@ -1,0 +1,133 @@
+{
+  "$schema": "../../../../schema/pack.schema.json",
+  "format": 1,
+  "id": "fr-useful-phrases",
+  "version": "1.0.0",
+  "language": "fr",
+  "title": "Phrases utiles",
+  "description": "Des phrases courtes pour la conversation de tous les jours.",
+  "author": "Speakagain contributors",
+  "license": "CC BY-SA 4.0",
+  "exercises": [
+    "repeat",
+    "read"
+  ],
+  "items": [
+    {
+      "id": "hello",
+      "answer": "Bonjour",
+      "accept": [
+        "salut"
+      ],
+      "image": "openmoji:1F44B"
+    },
+    {
+      "id": "good-night",
+      "answer": "Bonne nuit",
+      "image": "openmoji:1F319"
+    },
+    {
+      "id": "how-are-you",
+      "answer": "Comment ça va ?",
+      "accept": [
+        "ça va",
+        "comment allez-vous"
+      ],
+      "image": "openmoji:1F914"
+    },
+    {
+      "id": "im-fine",
+      "answer": "Je vais bien",
+      "accept": [
+        "ça va bien",
+        "bien"
+      ],
+      "image": "openmoji:1F642"
+    },
+    {
+      "id": "thank-you",
+      "answer": "Merci",
+      "accept": [
+        "merci beaucoup"
+      ],
+      "image": "openmoji:1F64F"
+    },
+    {
+      "id": "please",
+      "answer": "S'il vous plaît",
+      "accept": [
+        "s'il te plaît"
+      ],
+      "image": "openmoji:1F932"
+    },
+    {
+      "id": "yes",
+      "answer": "Oui",
+      "image": "openmoji:1F44D"
+    },
+    {
+      "id": "no",
+      "answer": "Non",
+      "image": "openmoji:1F645"
+    },
+    {
+      "id": "need-help",
+      "answer": "J'ai besoin d'aide",
+      "accept": [
+        "aidez-moi",
+        "à l'aide"
+      ],
+      "image": "openmoji:1F198"
+    },
+    {
+      "id": "it-hurts",
+      "answer": "J'ai mal",
+      "accept": [
+        "ça fait mal"
+      ],
+      "image": "openmoji:1F915"
+    },
+    {
+      "id": "tired",
+      "answer": "Je suis fatigué",
+      "accept": [
+        "je suis fatiguée",
+        "fatigué"
+      ],
+      "image": "openmoji:1F62B"
+    },
+    {
+      "id": "thirsty",
+      "answer": "J'ai soif",
+      "image": "openmoji:1F964"
+    },
+    {
+      "id": "hungry",
+      "answer": "J'ai faim",
+      "image": "openmoji:1F60B"
+    },
+    {
+      "id": "toilet",
+      "answer": "Je dois aller aux toilettes",
+      "accept": [
+        "je veux aller aux toilettes",
+        "toilettes"
+      ],
+      "image": "openmoji:1F6BD"
+    },
+    {
+      "id": "love-you",
+      "answer": "Je t'aime",
+      "image": "openmoji:2764"
+    },
+    {
+      "id": "goodbye",
+      "answer": "Au revoir",
+      "accept": [
+        "salut",
+        "à bientôt"
+      ],
+      "image": "openmoji:1F6AA"
+    }
+  ]
+}

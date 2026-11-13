@@ -1,0 +1,145 @@
+{
+  "$schema": "../../../../schema/pack.schema.json",
+  "format": 1,
+  "id": "zh-finish-the-sentence",
+  "version": "1.0.0",
+  "language": "zh",
+  "title": "补全句子",
+  "description": "缺了一个词的日常句子。",
+  "author": "Speakagain contributors",
+  "license": "CC BY-SA 4.0",
+  "exercises": [
+    "complete"
+  ],
+  "items": [
+    {
+      "id": "sleep-bed",
+      "answer": "床",
+      "image": "openmoji:1F6CF",
+      "sentence": "我们在___上睡觉。"
+    },
+    {
+      "id": "sit-chair",
+      "answer": "椅子",
+      "image": "openmoji:1FA91",
+      "sentence": "我们坐在___上。"
+    },
+    {
+      "id": "open-key",
+      "answer": "钥匙",
+      "image": "openmoji:1F511",
+      "sentence": "我们用___开门。"
+    },
+    {
+      "id": "read-book",
+      "answer": "书",
+      "image": "openmoji:1F4D6",
+      "sentence": "我们看___。"
+    },
+    {
+      "id": "brush-toothbrush",
+      "answer": "牙刷",
+      "image": "openmoji:1FAA5",
+      "sentence": "我们用___刷牙。"
+    },
+    {
+      "id": "cow-milk",
+      "answer": "牛奶",
+      "accept": [
+        "奶"
+      ],
+      "image": "openmoji:1F95B",
+      "sentence": "奶牛给我们___。"
+    },
+    {
+      "id": "morning-coffee",
+      "answer": "咖啡",
+      "accept": [
+        "茶"
+      ],
+      "image": "openmoji:2615",
+      "sentence": "早上我喝一杯___。"
+    },
+    {
+      "id": "sky-sun",
+      "answer": "太阳",
+      "image": "openmoji:2600",
+      "sentence": "___在天上照耀。"
+    },
+    {
+      "id": "night-moon",
+      "answer": "月亮",
+      "accept": [
+        "星星"
+      ],
+      "image": "openmoji:1F319",
+      "sentence": "晚上我们能看到___。"
+    },
+    {
+      "id": "see-eyes",
+      "answer": "眼睛",
+      "image": "openmoji:1F441",
+      "sentence": "我们用___看东西。"
+    },
+    {
+      "id": "hear-ears",
+      "answer": "耳朵",
+      "image": "openmoji:1F442",
+      "sentence": "我们用___听声音。"
+    },
+    {
+      "id": "smell-nose",
+      "answer": "鼻子",
+      "image": "openmoji:1F443",
+      "sentence": "我们用___闻气味。"
+    },
+    {
+      "id": "socks-shoes",
+      "answer": "鞋",
+      "accept": [
+        "鞋子"
+      ],
+      "image": "openmoji:1F45F",
+      "sentence": "穿上袜子，再穿___。"
+    },
+    {
+      "id": "rain-umbrella",
+      "answer": "伞",
+      "accept": [
+        "雨伞"
+      ],
+      "image": "openmoji:2602",
+      "sentence": "下雨的时候，我们打___。"
+    },
+    {
+      "id": "fly-plane",
+      "answer": "飞机",
+      "accept": [
+        "鸟"
+      ],
+      "image": "openmoji:2708",
+      "sentence": "___在天上飞。"
+    },
+    {
+      "id": "swim-fish",
+      "answer": "鱼",
+      "image": "openmoji:1F41F",
+      "sentence": "___在水里游。"
+    },
+    {
+      "id": "sandwich-bread",
+      "answer": "面包",
+      "image": "openmoji:1F35E",
+      "sentence": "三明治是用___做的。"
+    },
+    {
+      "id": "call-phone",
+      "answer": "电话",
+      "accept": [
+        "手机"
+      ],
+      "image": "openmoji:1F4F1",
+      "sentence": "想和远方的人说话，就打___。"
+    }
+  ]
+}

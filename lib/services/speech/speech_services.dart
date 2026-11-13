@@ -60,9 +60,9 @@ abstract class SpeechServices extends ChangeNotifier {
 /// natural voice, the microphone, and Whisper through sherpa-onnx.
 class DeviceSpeechServices extends SpeechServices {
   DeviceSpeechServices({required this.engine, required this.models, FlutterTts? tts, AudioPlayer? player})
-      : _tts = tts ?? FlutterTts(),
-        _player = player ?? AudioPlayer(),
-        _chimePlayer = AudioPlayer();
+    : _tts = tts ?? FlutterTts(),
+      _player = player ?? AudioPlayer(),
+      _chimePlayer = AudioPlayer();
 
   final SpeechEngine engine;
   final ModelStore models;
@@ -91,15 +91,11 @@ class DeviceSpeechServices extends SpeechServices {
         await _tts.awaitSpeakCompletion(true);
         if (!kIsWeb && defaultTargetPlatform == TargetPlatform.iOS) {
           await _tts.setSharedInstance(true);
-          await _tts.setIosAudioCategory(
-            IosTextToSpeechAudioCategory.playAndRecord,
-            [
-              IosTextToSpeechAudioCategoryOptions.defaultToSpeaker,
-              IosTextToSpeechAudioCategoryOptions.allowBluetooth,
-              IosTextToSpeechAudioCategoryOptions.allowBluetoothA2DP,
-            ],
-            IosTextToSpeechAudioMode.defaultMode,
-          );
+          await _tts.setIosAudioCategory(IosTextToSpeechAudioCategory.playAndRecord, [
+            IosTextToSpeechAudioCategoryOptions.defaultToSpeaker,
+            IosTextToSpeechAudioCategoryOptions.allowBluetooth,
+            IosTextToSpeechAudioCategoryOptions.allowBluetoothA2DP,
+          ], IosTextToSpeechAudioMode.defaultMode);
         }
       } on Object catch (e) {
         debugPrint('Text-to-speech setup: $e');
@@ -213,10 +209,10 @@ class DeviceSpeechServices extends SpeechServices {
   }
 
   RecognizerFiles _filesFor(RecognizerModel model) => RecognizerFiles(
-        encoder: models.pathOf(model, model.encoder),
-        decoder: models.pathOf(model, model.decoder),
-        tokens: models.pathOf(model, model.tokens),
-      );
+    encoder: models.pathOf(model, model.encoder),
+    decoder: models.pathOf(model, model.decoder),
+    tokens: models.pathOf(model, model.tokens),
+  );
 
   @override
   bool get canCheckSpeech => _settings.speechChecking && engine.isSupported && _installedRecognizer != null;
@@ -246,12 +242,7 @@ class DeviceSpeechServices extends SpeechServices {
   Future<String> transcribe(Recording recording) async {
     final model = _installedRecognizer;
     if (model == null || !recording.heardSpeech) return '';
-    return engine.transcribe(
-      recording.samples,
-      recording.sampleRate,
-      files: _filesFor(model),
-      language: _language,
-    );
+    return engine.transcribe(recording.samples, recording.sampleRate, files: _filesFor(model), language: _language);
   }
 
   @override

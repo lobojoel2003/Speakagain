@@ -1,0 +1,117 @@
+{
+  "$schema": "../../../../schema/pack.schema.json",
+  "format": 1,
+  "id": "es-counting-and-days",
+  "version": "1.0.0",
+  "language": "es",
+  "title": "Números y días",
+  "description": "Los números y los días de la semana, en orden.",
+  "author": "Speakagain contributors",
+  "license": "CC BY-SA 4.0",
+  "exercises": [
+    "complete",
+    "read",
+    "repeat"
+  ],
+  "items": [
+    {
+      "id": "number-3",
+      "answer": "tres",
+      "accept": [
+        "3"
+      ],
+      "sentence": "1, 2, ___"
+    },
+    {
+      "id": "number-4",
+      "answer": "cuatro",
+      "accept": [
+        "4"
+      ],
+      "sentence": "2, 3, ___"
+    },
+    {
+      "id": "number-5",
+      "answer": "cinco",
+      "accept": [
+        "5"
+      ],
+      "sentence": "3, 4, ___"
+    },
+    {
+      "id": "number-6",
+      "answer": "seis",
+      "accept": [
+        "6"
+      ],
+      "sentence": "4, 5, ___"
+    },
+    {
+      "id": "number-7",
+      "answer": "siete",
+      "accept": [
+        "7"
+      ],
+      "sentence": "5, 6, ___"
+    },
+    {
+      "id": "number-8",
+      "answer": "ocho",
+      "accept": [
+        "8"
+      ],
+      "sentence": "6, 7, ___"
+    },
+    {
+      "id": "number-9",
+      "answer": "nueve",
+      "accept": [
+        "9"
+      ],
+      "sentence": "7, 8, ___"
+    },
+    {
+      "id": "number-10",
+      "answer": "diez",
+      "accept": [
+        "10"
+      ],
+      "sentence": "8, 9, ___"
+    },
+    {
+      "id": "day-wednesday",
+      "answer": "miércoles",
+      "sentence": "lunes, martes, ___"
+    },
+    {
+      "id": "day-thursday",
+      "answer": "jueves",
+      "sentence": "martes, miércoles, ___"
+    },
+    {
+      "id": "day-friday",
+      "answer": "viernes",
+      "sentence": "miércoles, jueves, ___"
+    },
+    {
+      "id": "day-saturday",
+      "answer": "sábado",
+      "sentence": "jueves, viernes, ___"
+    },
+    {
+      "id": "day-sunday",
+      "answer": "domingo",
+      "sentence": "viernes, sábado, ___"
+    },
+    {
+      "id": "day-monday",
+      "answer": "lunes",
+      "sentence": "sábado, domingo, ___"
+    },
+    {
+      "id": "day-tuesday",
+      "answer": "martes",
+      "sentence": "domingo, lunes, ___"
+    }
+  ]
+}

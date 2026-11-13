@@ -1,0 +1,153 @@
+{
+  "$schema": "../../../../schema/pack.schema.json",
+  "format": 1,
+  "id": "fr-finish-the-sentence",
+  "version": "1.0.0",
+  "language": "fr",
+  "title": "Termine la phrase",
+  "description": "Des phrases de tous les jours où il manque un mot.",
+  "author": "Speakagain contributors",
+  "license": "CC BY-SA 4.0",
+  "exercises": [
+    "complete"
+  ],
+  "items": [
+    {
+      "id": "sleep-bed",
+      "answer": "lit",
+      "image": "openmoji:1F6CF",
+      "sentence": "On dort dans un ___."
+    },
+    {
+      "id": "sit-chair",
+      "answer": "chaise",
+      "image": "openmoji:1FA91",
+      "sentence": "On s'assoit sur une ___."
+    },
+    {
+      "id": "open-key",
+      "answer": "clé",
+      "accept": [
+        "clef"
+      ],
+      "image": "openmoji:1F511",
+      "sentence": "On ouvre la porte avec une ___."
+    },
+    {
+      "id": "read-book",
+      "answer": "livre",
+      "image": "openmoji:1F4D6",
+      "sentence": "On lit un ___."
+    },
+    {
+      "id": "brush-toothbrush",
+      "answer": "brosse à dents",
+      "accept": [
+        "brosse"
+      ],
+      "image": "openmoji:1FAA5",
+      "sentence": "On se brosse les dents avec une ___."
+    },
+    {
+      "id": "cow-milk",
+      "answer": "lait",
+      "image": "openmoji:1F95B",
+      "sentence": "La vache nous donne du ___."
+    },
+    {
+      "id": "morning-coffee",
+      "answer": "café",
+      "accept": [
+        "thé"
+      ],
+      "image": "openmoji:2615",
+      "sentence": "Le matin, je bois une tasse de ___."
+    },
+    {
+      "id": "sky-sun",
+      "answer": "soleil",
+      "image": "openmoji:2600",
+      "sentence": "Le ___ brille dans le ciel."
+    },
+    {
+      "id": "night-moon",
+      "answer": "lune",
+      "accept": [
+        "étoiles"
+      ],
+      "image": "openmoji:1F319",
+      "sentence": "La nuit, on voit la ___."
+    },
+    {
+      "id": "see-eyes",
+      "answer": "yeux",
+      "accept": [
+        "œil",
+        "oeil"
+      ],
+      "image": "openmoji:1F441",
+      "sentence": "On voit avec les ___."
+    },
+    {
+      "id": "hear-ears",
+      "answer": "oreilles",
+      "accept": [
+        "oreille"
+      ],
+      "image": "openmoji:1F442",
+      "sentence": "On entend avec les ___."
+    },
+    {
+      "id": "smell-nose",
+      "answer": "nez",
+      "image": "openmoji:1F443",
+      "sentence": "On sent les odeurs avec le ___."
+    },
+    {
+      "id": "socks-shoes",
+      "answer": "chaussures",
+      "accept": [
+        "chaussure",
+        "baskets"
+      ],
+      "image": "openmoji:1F45F",
+      "sentence": "Je mets mes chaussettes et mes ___."
+    },
+    {
+      "id": "rain-umbrella",
+      "answer": "parapluie",
+      "image": "openmoji:2602",
+      "sentence": "Quand il pleut, on ouvre le ___."
+    },
+    {
+      "id": "fly-plane",
+      "answer": "avion",
+      "accept": [
+        "oiseau"
+      ],
+      "image": "openmoji:2708",
+      "sentence": "Un ___ vole dans le ciel."
+    },
+    {
+      "id": "swim-fish",
+      "answer": "poisson",
+      "image": "openmoji:1F41F",
+      "sentence": "Le ___ nage dans l'eau."
+    },
+    {
+      "id": "sandwich-bread",
+      "answer": "pain",
+      "image": "openmoji:1F35E",
+      "sentence": "On fait un sandwich avec du ___."
+    },
+    {
+      "id": "call-phone",
+      "answer": "téléphone",
+      "accept": [
+        "portable"
+      ],
+      "image": "openmoji:1F4F1",
+      "sentence": "Pour appeler quelqu'un, on prend le ___."
+    }
+  ]
+}

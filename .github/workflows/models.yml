@@ -1,0 +1,95 @@
+name: Models
+
+# Builds the speech-checking models and natural voices the app downloads, and
+# publishes them as the GitHub release named in assets/models/catalog.json.
+# Everything is rebuilt from pinned upstream archives (tool/models/sources.json)
+# and must match the committed catalog byte for byte before it is published.
+#
+# Run it from Actions > Models > Run workflow, or push the tag (git tag models-v1).
+on:
+  push:
+    tags: ["models-v*"]
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - "tool/models/**"
+      - "assets/models/catalog.json"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: models-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  build:
+    name: Build and check
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+      - run: pip install --quiet -r tool/models/requirements.txt
+      - uses: actions/cache@v5
+        with:
+          path: build/models-cache
+          key: models-upstream-${{ hashFiles('tool/models/sources.json') }}
+      - name: Build (fails unless it matches assets/models/catalog.json)
+        run: python3 tool/models/build_models.py --check assets/models/catalog.json
+      - name: Files
+        run: ls -l build/models && cat build/models/SHA256SUMS.txt
+      - uses: actions/upload-artifact@v7
+        if: github.event_name != 'pull_request'
+        with:
+          name: models
+          path: build/models/
+          retention-days: 7
+
+  publish:
+    name: Publish release
+    needs: build
+    if: github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/download-artifact@v8
+        with:
+          name: models
+          path: build/models
+      - name: Release tag
+        run: echo "TAG=$(python3 -c 'import json;print(json.load(open("assets/models/catalog.json"))["release"])')" >> "$GITHUB_ENV"
+      - name: Notes
+        run: |
+          {
+            echo "Speech-checking models and natural voices for Speakagain. The app downloads these files"
+            echo "itself (Settings › Speech checking, Settings › Voice) and checks each one's SHA-256."
+            echo
+            echo "For a device that never goes online: download the files you need here, copy them to the"
+            echo "device and use **Install from a file**."
+            echo
+            echo "| File | What |"
+            echo "|---|---|"
+            echo "| \`whisper-base-*\` + \`whisper-tokens.txt\` | Speech checking, standard (OpenAI Whisper base, MIT) |"
+            echo "| \`whisper-tiny-*\` + \`whisper-tokens.txt\` | Speech checking, small (OpenAI Whisper tiny, MIT) |"
+            echo "| \`voice-<name>.onnx\`, \`-tokens.txt\`, \`-MODEL_CARD.txt\` | A natural Piper voice (licence in its model card) |"
+            echo "| \`espeak-ng-data.zip\` | Pronunciation data every natural voice needs (eSpeak NG, GPL-3.0-or-later) |"
+            echo
+            echo "Built by [tool/models/build_models.py](https://github.com/${{ github.repository }}/blob/${{ github.sha }}/tool/models/build_models.py)"
+            echo "from the pinned sherpa-onnx archives in [tool/models/sources.json](https://github.com/${{ github.repository }}/blob/${{ github.sha }}/tool/models/sources.json)."
+            echo "The Whisper decoders store their word table in 8 bits to be about 60% smaller ([how](https://github.com/${{ github.repository }}/blob/${{ github.sha }}/tool/models/shrink_whisper_decoder.py))."
+          } > notes.md
+      - uses: softprops/action-gh-release@v3
+        with:
+          tag_name: ${{ env.TAG }}
+          target_commitish: ${{ github.sha }}
+          name: Speakagain models (${{ env.TAG }})
+          body_path: notes.md
+          files: build/models/*
+          fail_on_unmatched_files: true
+          make_latest: "false"

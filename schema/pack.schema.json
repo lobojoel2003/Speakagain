@@ -1,0 +1,70 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/lobojoel2003/Speakagain/blob/main/schema/pack.schema.json",
+  "title": "Speakagain exercise pack",
+  "description": "A set of words, phrases or sentences to practise in one language. See docs/packs.md.",
+  "type": "object",
+  "required": ["format", "id", "version", "language", "title", "exercises", "items"],
+  "additionalProperties": false,
+  "properties": {
+    "$schema": { "type": "string" },
+    "format": { "const": 1, "description": "Pack file format version." },
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$",
+      "description": "Unique id, starting with the language code, such as \"en-kitchen-words\"."
+    },
+    "version": { "type": "string", "pattern": "^\\d+\\.\\d+\\.\\d+$", "description": "The pack's own version (MAJOR.MINOR.PATCH)." },
+    "language": {
+      "type": "string",
+      "pattern": "^[a-z]{2,3}(-[A-Za-z0-9]{2,8})*$",
+      "description": "Language code, such as \"en\", \"es\" or \"pt-BR\"."
+    },
+    "title": { "type": "string", "minLength": 1, "description": "Short title, in the pack's language." },
+    "description": { "type": "string", "description": "One sentence about the pack, in the pack's language." },
+    "author": { "type": "string" },
+    "license": { "type": "string", "description": "Licence for the pack's text and pictures, such as \"CC BY-SA 4.0\"." },
+    "exercises": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": { "enum": ["name", "listen", "read", "repeat", "complete"] },
+      "description": "name and listen need items with an image; complete needs items with a sentence."
+    },
+    "categories": {
+      "type": "object",
+      "additionalProperties": { "type": "string", "minLength": 1 },
+      "description": "Meaning hints by category key, such as {\"food\": \"Something to eat or drink\"}."
+    },
+    "items": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["id", "answer"],
+        "additionalProperties": false,
+        "properties": {
+          "id": { "type": "string", "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$" },
+          "answer": { "type": "string", "minLength": 1, "description": "What the person says, written as it is shown." },
+          "accept": {
+            "type": "array",
+            "items": { "type": "string", "minLength": 1 },
+            "description": "Other answers that also count: plurals, synonyms, regional words, digits."
+          },
+          "image": {
+            "type": "string",
+            "pattern": "^(openmoji:[0-9A-F]{4,6}(-[0-9A-F]{4,6})*|images/[A-Za-z0-9_\\-./]+\\.(png|jpg|jpeg|webp|svg))$",
+            "description": "\"openmoji:<HEX>\" for a bundled OpenMoji symbol, or \"images/<file>\" inside the pack."
+          },
+          "category": { "type": "string", "description": "A key of \"categories\", used as a meaning hint." },
+          "cue": { "type": "string", "minLength": 1, "description": "A meaning hint for this item only." },
+          "sentence": {
+            "type": "string",
+            "pattern": "___",
+            "description": "A sentence or series with ___ where the answer goes, for the complete exercise."
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,125 @@
+{
+  "$schema": "../../../../schema/pack.schema.json",
+  "format": 1,
+  "id": "hi-counting-and-days",
+  "version": "1.0.0",
+  "language": "hi",
+  "title": "गिनती और दिन",
+  "description": "संख्याएँ और हफ़्ते के दिन, क्रम से।",
+  "author": "Speakagain contributors",
+  "license": "CC BY-SA 4.0",
+  "exercises": [
+    "complete",
+    "read",
+    "repeat"
+  ],
+  "items": [
+    {
+      "id": "number-3",
+      "answer": "तीन",
+      "accept": [
+        "3"
+      ],
+      "sentence": "1, 2, ___"
+    },
+    {
+      "id": "number-4",
+      "answer": "चार",
+      "accept": [
+        "4"
+      ],
+      "sentence": "2, 3, ___"
+    },
+    {
+      "id": "number-5",
+      "answer": "पाँच",
+      "accept": [
+        "5"
+      ],
+      "sentence": "3, 4, ___"
+    },
+    {
+      "id": "number-6",
+      "answer": "छह",
+      "accept": [
+        "6",
+        "छः"
+      ],
+      "sentence": "4, 5, ___"
+    },
+    {
+      "id": "number-7",
+      "answer": "सात",
+      "accept": [
+        "7"
+      ],
+      "sentence": "5, 6, ___"
+    },
+    {
+      "id": "number-8",
+      "answer": "आठ",
+      "accept": [
+        "8"
+      ],
+      "sentence": "6, 7, ___"
+    },
+    {
+      "id": "number-9",
+      "answer": "नौ",
+      "accept": [
+        "9"
+      ],
+      "sentence": "7, 8, ___"
+    },
+    {
+      "id": "number-10",
+      "answer": "दस",
+      "accept": [
+        "10"
+      ],
+      "sentence": "8, 9, ___"
+    },
+    {
+      "id": "day-wednesday",
+      "answer": "बुधवार",
+      "sentence": "सोमवार, मंगलवार, ___"
+    },
+    {
+      "id": "day-thursday",
+      "answer": "गुरुवार",
+      "accept": [
+        "बृहस्पतिवार",
+        "वीरवार"
+      ],
+      "sentence": "मंगलवार, बुधवार, ___"
+    },
+    {
+      "id": "day-friday",
+      "answer": "शुक्रवार",
+      "sentence": "बुधवार, गुरुवार, ___"
+    },
+    {
+      "id": "day-saturday",
+      "answer": "शनिवार",
+      "sentence": "गुरुवार, शुक्रवार, ___"
+    },
+    {
+      "id": "day-sunday",
+      "answer": "रविवार",
+      "accept": [
+        "इतवार"
+      ],
+      "sentence": "शुक्रवार, शनिवार, ___"
+    },
+    {
+      "id": "day-monday",
+      "answer": "सोमवार",
+      "sentence": "शनिवार, रविवार, ___"
+    },
+    {
+      "id": "day-tuesday",
+      "answer": "मंगलवार",
+      "sentence": "रविवार, सोमवार, ___"
+    }
+  ]
+}
