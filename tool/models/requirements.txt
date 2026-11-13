@@ -1,0 +1,5 @@
+# Pinned so the models release is byte-for-byte reproducible (CI checks the
+# SHA-256 of every file against assets/models/catalog.json).
+numpy==2.5.4
+onnx==1.19.1
+protobuf==7.36.2

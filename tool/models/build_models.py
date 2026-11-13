@@ -1,0 +1,217 @@
+"""Build the Speakagain models release from pinned upstream archives.
+
+The app downloads its speech-checking models and natural voices once, from a
+GitHub release of this repository (tag in assets/models/catalog.json). This
+script makes every file of that release:
+
+- downloads each upstream sherpa-onnx archive listed in tool/models/sources.json
+  and checks its SHA-256,
+- takes only the files the app needs: the int8 Whisper encoder, a smaller Whisper
+  decoder (shrink_whisper_decoder.py) and the shared tokens; each voice's model,
+  tokens and model card; and the eSpeak NG data all voices share, as one zip,
+- writes plain files that phones can download and use without unpacking, with
+  SHA256SUMS.txt and catalog.json (sizes and checksums).
+
+Everything is deterministic, so CI rebuilds the release and checks it against
+the committed assets/models/catalog.json before publishing.
+
+Usage:
+  python tool/models/build_models.py [--cache DIR] [--out DIR] [--check assets/models/catalog.json]
+"""
+
+import argparse
+import hashlib
+import json
+import os
+import shutil
+import sys
+import tarfile
+import urllib.request
+import zipfile
+from pathlib import Path
+
+HERE = Path(__file__).resolve().parent
+sys.path.insert(0, str(HERE))
+from shrink_whisper_decoder import shrink  # noqa: E402
+
+CHUNK = 1 << 20
+RELEASE_TAG = 'models-v1'
+REPOSITORY = 'lobojoel2003/Speakagain'
+
+
+def sha256_of(path: Path) -> str:
+    digest = hashlib.sha256()
+    with path.open('rb') as f:
+        while block := f.read(CHUNK):
+            digest.update(block)
+    return digest.hexdigest()
+
+
+def fetch(url: str, dest: Path, sha256: str) -> Path:
+    if dest.exists() and sha256_of(dest) == sha256:
+        return dest
+    dest.parent.mkdir(parents=True, exist_ok=True)
+    part = dest.with_suffix(dest.suffix + '.part')
+    print(f'Downloading {url}', flush=True)
+    with urllib.request.urlopen(url) as response, part.open('wb') as out:
+        shutil.copyfileobj(response, out, CHUNK)
+    actual = sha256_of(part)
+    if actual != sha256:
+        part.unlink()
+        raise SystemExit(f'Checksum mismatch for {url}\n  expected {sha256}\n  got      {actual}')
+    part.replace(dest)
+    return dest
+
+
+def extract(archive: Path, members: dict[str, Path]) -> None:
+    """Extract archive members (path in archive -> destination file)."""
+    wanted = dict(members)
+    with tarfile.open(archive, 'r:bz2') as tar:
+        for info in tar:
+            target = wanted.pop(info.name, None)
+            if target is None:
+                continue
+            source = tar.extractfile(info)
+            if source is None:
+                raise SystemExit(f'{info.name} in {archive.name} is not a file')
+            target.parent.mkdir(parents=True, exist_ok=True)
+            with target.open('wb') as out:
+                shutil.copyfileobj(source, out, CHUNK)
+            if not wanted:
+                break
+    if wanted:
+        raise SystemExit(f'{archive.name} is missing: {", ".join(wanted)}')
+
+
+def extract_dir(archive: Path, prefix: str, dest: Path) -> list[tuple[str, bytes]]:
+    """Read every file under prefix/ (sorted), returning (relative path, bytes)."""
+    files = []
+    with tarfile.open(archive, 'r:bz2') as tar:
+        for info in tar:
+            if info.isfile() and info.name.startswith(prefix + '/'):
+                data = tar.extractfile(info).read()
+                files.append((info.name[len(prefix) + 1:], data))
+    if not files:
+        raise SystemExit(f'{archive.name} has no {prefix}/')
+    return sorted(files)
+
+
+def deterministic_zip(entries: list[tuple[str, bytes]], dest: Path, root: str) -> None:
+    with zipfile.ZipFile(dest, 'w', compression=zipfile.ZIP_DEFLATED, compresslevel=9) as zf:
+        for name, data in entries:
+            info = zipfile.ZipInfo(f'{root}/{name}', date_time=(1980, 1, 1, 0, 0, 0))
+            info.compress_type = zipfile.ZIP_DEFLATED
+            info.external_attr = 0o644 << 16
+            info.create_system = 3
+            zf.writestr(info, data, compress_type=zipfile.ZIP_DEFLATED, compresslevel=9)
+
+
+def file_entry(path: Path) -> dict:
+    return {'name': path.name, 'bytes': path.stat().st_size, 'sha256': sha256_of(path)}
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
+    parser.add_argument('--cache', type=Path, default=Path('build/models-cache'))
+    parser.add_argument('--out', type=Path, default=Path('build/models'))
+    parser.add_argument('--check', type=Path, help='fail unless the built catalog equals this file')
+    args = parser.parse_args()
+
+    sources = json.loads((HERE / 'sources.json').read_text(encoding='utf-8'))
+    upstream = sources['upstream']
+    out: Path = args.out
+    if out.exists():
+        shutil.rmtree(out)
+    out.mkdir(parents=True)
+
+    catalog = {
+        'comment': 'Generated by tool/models/build_models.py. Files are published as the GitHub release '
+                   f'{RELEASE_TAG}; the app checks every download against these SHA-256 sums.',
+        'release': RELEASE_TAG,
+        'baseUrl': f'https://github.com/{REPOSITORY}/releases/download/{RELEASE_TAG}/',
+        'recognizers': [],
+        'voiceData': None,
+        'voices': [],
+    }
+
+    tokens_written = None
+    for rec in sources['recognizers']:
+        archive = fetch(upstream + rec['archive'], args.cache / Path(rec['archive']).name, rec['sha256'])
+        prefix = rec['id']
+        encoder = out / f'{prefix}-encoder.int8.onnx'
+        raw_decoder = args.cache / f'{prefix}-decoder.int8.onnx'
+        decoder = out / f'{prefix}-decoder.int8e.onnx'
+        tokens = args.cache / f'{prefix}-tokens.txt'
+        extract(archive, {rec['encoder']: encoder, rec['decoder']: raw_decoder, rec['tokens']: tokens})
+        print(f'Shrinking {raw_decoder.name}', flush=True)
+        shrink(str(raw_decoder), str(decoder))
+        # Every multilingual Whisper model uses the same tokens; publish them once.
+        shared_tokens = out / 'whisper-tokens.txt'
+        if tokens_written is None:
+            shutil.copyfile(tokens, shared_tokens)
+            tokens_written = sha256_of(shared_tokens)
+        elif sha256_of(tokens) != tokens_written:
+            raise SystemExit(f'{rec["id"]} uses different tokens from the other Whisper models')
+        catalog['recognizers'].append({
+            'id': rec['id'],
+            'size': rec['size'],
+            'name': rec['name'],
+            'license': rec['license'],
+            'encoder': file_entry(encoder),
+            'decoder': file_entry(decoder),
+            'tokens': file_entry(shared_tokens),
+        })
+
+    espeak = None
+    for voice in sources['voices']:
+        name = f'vits-piper-{voice["id"]}'
+        archive = fetch(f'{upstream}tts-models/{name}.tar.bz2', args.cache / f'{name}.tar.bz2', voice['sha256'])
+        model = out / f'voice-{voice["id"]}.onnx'
+        tokens = out / f'voice-{voice["id"]}-tokens.txt'
+        card = out / f'voice-{voice["id"]}-MODEL_CARD.txt'
+        extract(archive, {
+            f'{name}/{voice["id"]}.onnx': model,
+            f'{name}/tokens.txt': tokens,
+            f'{name}/MODEL_CARD': card,
+        })
+        data = extract_dir(archive, f'{name}/espeak-ng-data', out)
+        digest = hashlib.sha256(b''.join(n.encode() + b'\0' + d for n, d in data)).hexdigest()
+        if espeak is None:
+            espeak = (data, digest)
+        elif espeak[1] != digest:
+            raise SystemExit(f'{voice["id"]} ships different eSpeak NG data from the other voices')
+        catalog['voices'].append({
+            'id': voice['id'],
+            'name': voice['name'],
+            'language': voice['language'],
+            'locale': voice['locale'],
+            'gender': voice['gender'],
+            'license': voice['license'],
+            'model': file_entry(model),
+            'tokens': file_entry(tokens),
+            'modelCard': file_entry(card),
+        })
+
+    if espeak is not None:
+        zip_path = out / 'espeak-ng-data.zip'
+        deterministic_zip(espeak[0], zip_path, 'espeak-ng-data')
+        catalog['voiceData'] = {'id': 'espeak-ng-data', 'license': 'GPL-3.0-or-later', 'archive': file_entry(zip_path)}
+
+    (out / 'catalog.json').write_text(json.dumps(catalog, indent=2, ensure_ascii=False) + '\n', encoding='utf-8')
+    sums = sorted((p.name, sha256_of(p)) for p in out.iterdir() if p.is_file() and p.name != 'SHA256SUMS.txt')
+    (out / 'SHA256SUMS.txt').write_text(''.join(f'{h}  {n}\n' for n, h in sums), encoding='utf-8')
+    total = sum(p.stat().st_size for p in out.iterdir())
+    print(f'Built {len(sums)} files, {total / 1e6:.1f} MB in {out}')
+
+    if args.check:
+        expected = json.loads(args.check.read_text(encoding='utf-8'))
+        if expected != catalog:
+            print(json.dumps(catalog, indent=2, ensure_ascii=False))
+            raise SystemExit(f'The built models differ from {args.check}. Update it with the catalog above '
+                             '(and publish a new models release) if the change is intended.')
+        print(f'Matches {args.check}')
+
+
+if __name__ == '__main__':
+    os.umask(0o022)
+    main()

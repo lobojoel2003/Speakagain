@@ -1,0 +1,40 @@
+{
+  "comment": "Upstream archives the models release is built from (tool/models/build_models.py). Pinned by SHA-256. Voices follow Saywell's rule: only voices whose model card states a clear licence for the training data.",
+  "upstream": "https://github.com/k2-fsa/sherpa-onnx/releases/download/",
+  "recognizers": [
+    {
+      "id": "whisper-base",
+      "size": "standard",
+      "name": "Whisper base",
+      "license": "MIT",
+      "archive": "asr-models/sherpa-onnx-whisper-base.tar.bz2",
+      "sha256": "911b2083efd7c0dca2ac3b358b75222660dc09fb716d64fbfc417ba6c99ff3de",
+      "encoder": "sherpa-onnx-whisper-base/base-encoder.int8.onnx",
+      "decoder": "sherpa-onnx-whisper-base/base-decoder.int8.onnx",
+      "tokens": "sherpa-onnx-whisper-base/base-tokens.txt"
+    },
+    {
+      "id": "whisper-tiny",
+      "size": "small",
+      "name": "Whisper tiny",
+      "license": "MIT",
+      "archive": "asr-models/sherpa-onnx-whisper-tiny.tar.bz2",
+      "sha256": "c46116994e539aa165266d96b325252728429c12535eb9d8b6a2b10f129e66b1",
+      "encoder": "sherpa-onnx-whisper-tiny/tiny-encoder.int8.onnx",
+      "decoder": "sherpa-onnx-whisper-tiny/tiny-decoder.int8.onnx",
+      "tokens": "sherpa-onnx-whisper-tiny/tiny-tokens.txt"
+    }
+  ],
+  "voices": [
+    { "id": "en_US-kristin-medium", "name": "Kristin", "language": "en", "locale": "en-US", "gender": "female", "license": "public domain", "sha256": "c2206f572df2956c50b1ae3367eebce3853c663e890cba8048cd62b1e4dbe6c7" },
+    { "id": "en_GB-cori-medium", "name": "Cori", "language": "en", "locale": "en-GB", "gender": "female", "license": "public domain", "sha256": "49c9a5361bbdd95d7ca9687c4de11e5908481f65e7c7c368960df79949fdac2b" },
+    { "id": "es_ES-davefx-medium", "name": "Davefx", "language": "es", "locale": "es-ES", "gender": "male", "license": "CC0", "sha256": "a3f6beb54a9cb893279f72978a22f807a4d9fc9c7848157b524d5cc7b7f58b22" },
+    { "id": "es_MX-ald-medium", "name": "Ald", "language": "es", "locale": "es-MX", "gender": "male", "license": "Unlicense", "sha256": "c60cf7bc853eb01a875fba0756523fecf9d9f46c763b19785d223fc981fb4fb6" },
+    { "id": "fr_FR-siwis-medium", "name": "Siwis", "language": "fr", "locale": "fr-FR", "gender": "female", "license": "CC BY 4.0", "sha256": "375909aa30842b3a4efa10b1beb1d761af792960ae6873b4d53889f96c66195b" },
+    { "id": "de_DE-thorsten-medium", "name": "Thorsten", "language": "de", "locale": "de-DE", "gender": "male", "license": "CC0", "sha256": "50487d9c95fdf2191f31d2588569381063ba1591dcd4c7d4bdd30f12b2191714" },
+    { "id": "pt_BR-faber-medium", "name": "Faber", "language": "pt", "locale": "pt-BR", "gender": "male", "license": "CC0", "sha256": "7add3f923ad6bc25ca8a192805fd1a64d1b3893e4611c4a9719545a825039a83" },
+    { "id": "nl_NL-pim-medium", "name": "Pim", "language": "nl", "locale": "nl-NL", "gender": "male", "license": "CC0", "sha256": "e78ed301bf6fc66561a04c110754cd6928d772630a3b80b09a83f89410130171" },
+    { "id": "pl_PL-gosia-medium", "name": "Gosia", "language": "pl", "locale": "pl-PL", "gender": "female", "license": "CC0", "sha256": "75bd34dcbdc4dd98d763954756b4b34b4208100497c836381542e4d73dcefa9c" },
+    { "id": "pl_PL-darkman-medium", "name": "Darkman", "language": "pl", "locale": "pl-PL", "gender": "male", "license": "CC0", "sha256": "444727aa46eb6db645a2bc88fe73868e4bd7596b7f56ca39fad5ef53c41210d4" }
+  ]
+}
