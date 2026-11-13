@@ -28,10 +28,15 @@ def main() -> None:
             continue
         seen.add(entry['name'])
         url = catalog['baseUrl'] + entry['name']
-        request = urllib.request.Request(url, method='HEAD', headers={'User-Agent': 'speakagain-ci'})
+        # A one-byte ranged GET: release downloads redirect to signed URLs that refuse HEAD.
+        request = urllib.request.Request(url, headers={'User-Agent': 'speakagain-ci', 'Range': 'bytes=0-0'})
         try:
             with urllib.request.urlopen(request, timeout=60) as response:
-                size = int(response.headers.get('Content-Length', '-1'))
+                content_range = response.headers.get('Content-Range', '')
+                if response.status == 206 and '/' in content_range:
+                    size = int(content_range.rsplit('/', 1)[1])
+                else:
+                    size = int(response.headers.get('Content-Length', '-1'))
         except Exception as error:  # noqa: BLE001
             problems.append(f'{url}: {error}')
             continue
